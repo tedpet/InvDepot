@@ -19,3 +19,6 @@ When you first import this project, you may need to right click the project fold
     3. rm -rf womodular
 3. Check out and build this project in eclipse or on the command line.
     1. In eclipse, you should be able to right click on InvDepot.launch and Run as/Debug as the application.
+
+
+There is a separate framework InvDepotFW needed for this app
