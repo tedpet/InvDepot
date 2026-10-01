@@ -1,0 +1,54 @@
+(
+	{
+		name = Root;
+		children = ("Home","Person","Vendor","Invoice");
+	},
+	{
+		name = "Home";
+		action = "session.navController.homeAction";
+	},
+	{
+		name = Person;
+		action = "session.navController.listPersonAction";
+		children = ("createPerson","searchPerson");
+	},
+	{
+		name = createPerson;
+		action = "session.navController.createPersonAction";
+	},
+	{
+		name = searchPerson;
+		action = "session.navController.queryPersonAction";
+	},
+	{
+		name = Vendor;
+		action = "session.navController.listVendorAction";
+		children = ("createVendor","searchVendor");
+	},
+	{
+		name = createVendor;
+		action = "session.navController.createVendorAction";
+	},
+	{
+		name = searchVendor;
+		action = "session.navController.queryVendorAction";
+	},
+	{
+		name = Invoice;
+		action = "session.navController.listInvoiceAction";
+		children = ("createInvoice","searchVendor");
+	},
+	{
+		name = createInvoice;
+		action = "session.navController.createInvoiceAction";
+	},
+	{
+		name = searchInvoice;
+		action = "session.navController.queryInvoiceAction";
+	},
+	{
+		name = Tab2;
+		action = "session.navController.homeAction";
+	}
+
+)

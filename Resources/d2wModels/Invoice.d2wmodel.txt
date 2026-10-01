@@ -1,0 +1,12 @@
+(
+    100 : entity.name = 'SavedDoc' => useAjaxControlsWhenEmbedded = "false" [com.webobjects.directtoweb.BooleanAssignment],
+    100 : pageConfiguration = 'EditInvoice' => formEncoding = "multipart/form-data" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditInvoice' => formEncoding = "multipart/form-data" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'CreateInvoice' => formEncoding = "multipart/form-data" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditSavedDoc' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration like 'Edit*SavedDoc' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration like 'ListEmbedded*' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'ListEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'InspectEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'EditRelationshipEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment]
+)
