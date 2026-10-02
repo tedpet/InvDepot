@@ -1,0 +1,2026 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000001086ad094, pid=79763, tid=33795
+#
+# JRE version: OpenJDK Runtime Environment JBR-25.0.4.1+1-610.67-nomod (25.0.4.1+1) (build 25.0.4.1+1-b610.67)
+# Java VM: OpenJDK 64-Bit Server VM JBR-25.0.4.1+1-610.67-nomod (25.0.4.1+1-b610.67, mixed mode, tiered, compressed oops, compact obj headers, g1 gc, bsd-aarch64)
+# Problematic frame:
+# V  [libjvm.dylib+0x685094]  VM_EnhancedRedefineClasses::do_topological_class_sorting(ResourceHashtable<Klass*, Klass*, 1031u, (AnyObj::allocation_type)2, (MemTag)9, &old2new_ptr_hash(Klass* const&), &old2new_ptr_equals(Klass* const&, Klass* const&)>*, JavaThread*)+0x294
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://youtrack.jetbrains.com/issues/JBR
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:62005 -XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar -XX:+UseCompactObjectHeaders --enable-native-access=ALL-UNNAMED,com.github.luben.zstd_jni -javaagent:/Users/asacksadmin/eclipse/java-2026-03/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/871/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 --module-path=/Users/asacksadmin/Developer/Master-WO/InvDepot/target/classes:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/ERExtensions/target/classes:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-foundation/1.0.1/wonder-modular-foundation-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eocontrol/1.0.1/wonder-modular-eocontrol-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eoaccess/1.0.1/wonder-modular-eoaccess-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-jdbcadaptor/1.0.1/wonder-modular-jdbcadaptor-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-webobjects/1.0.1/wonder-modular-webobjects-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/asacksadmin/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/ERDirectToWeb/target/classes:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-directtoweb/1.0.1/wonder-modular-directtoweb-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-dtwgeneration/1.0.1/wonder-modular-dtwgeneration-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eoproject/1.0.1/wonder-modular-eoproject-1.0.1.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/BusinessLogic/ERAttachment/target/classes:/Users/asacksadmin/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/Users/asacksadmin/.m2/repository/io/github/wocommunity/wonder/ajax/ajax/8.0.3-SNAPSHOT/ajax-8.0.3-SNAPSHOT.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/JavaWOExtensions/target/classes:/Users/asacksadmin/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.2/jackson-core-2.18.2.jar:/Users/asacksadmin/.m2/repository/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar:/Users/asacksadmin/.m2/repository/org/bouncyca-Djdk.module.main=com.eltek.InvDepot com.eltek.InvDepot/com.eltek.Application -DWOPort=9018 -DWOHost=127.0.0.1 -DWOAdaptorURL=https://127.0.0.1/cgi-bin/WebObjects -DWOSSLEnabled=true
+
+Host: "iMac21,1" arm64, 8 cores, 16G, Darwin 27.0.0, macOS 27.0.1 (26A434)
+Time: Thu Oct  1 14:52:11 2026 EDT elapsed time: 146.709058 seconds (0d 0h 2m 26s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000074e7ddca00):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=33795, stack(0x0000000170d24000,0x0000000170f27000) (2060K)]
+
+Stack: [0x0000000170d24000,0x0000000170f27000],  sp=0x0000000170f244c0,  free space=2049k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0x685094]  VM_EnhancedRedefineClasses::do_topological_class_sorting(ResourceHashtable<Klass*, Klass*, 1031u, (AnyObj::allocation_type)2, (MemTag)9, &old2new_ptr_hash(Klass* const&), &old2new_ptr_equals(Klass* const&, Klass* const&)>*, JavaThread*)+0x294
+V  [libjvm.dylib+0x68231c]  VM_EnhancedRedefineClasses::find_sorted_affected_classes(bool, GrowableArray<Klass*>*, ResourceHashtable<Klass*, Klass*, 1031u, (AnyObj::allocation_type)2, (MemTag)9, &old2new_ptr_hash(Klass* const&), &old2new_ptr_equals(Klass* const&, Klass* const&)>*, JavaThread*)+0x194
+V  [libjvm.dylib+0x680a64]  VM_EnhancedRedefineClasses::load_new_class_versions(JavaThread*)+0x10c
+V  [libjvm.dylib+0x6807b0]  VM_EnhancedRedefineClasses::doit_prologue()+0x128
+V  [libjvm.dylib+0xbb456c]  VMThread::execute(VM_Operation*)+0x78
+V  [libjvm.dylib+0x6d549c]  JvmtiEnv::RedefineClasses(int, jvmtiClassDefinition const*)+0x78
+V  [libjvm.dylib+0x699304]  jvmti_RedefineClasses(_jvmtiEnv*, int, jvmtiClassDefinition const*)+0x1cc
+C  [libjdwp.dylib+0xe40c]  redefineClasses+0x200
+C  [libjdwp.dylib+0x138e4]  debugLoop_run+0x208
+C  [libjdwp.dylib+0x288f0]  attachThread+0x70
+V  [libjvm.dylib+0x6fae60]  JvmtiAgentThread::start_function_wrapper(JavaThread*, JavaThread*)+0x3c
+V  [libjvm.dylib+0x50744c]  JavaThread::thread_main_inner()+0xa4
+V  [libjvm.dylib+0xb191e8]  Thread::call_run()+0xc8
+V  [libjvm.dylib+0x8b486c]  thread_native_entry(Thread*)+0x118
+C  [libsystem_pthread.dylib+0x6d00]  _pthread_start+0x88
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x0000000000000000
+
+Registers:
+ x0=0x0000000170f24568  x1=0x0000000170f23503  x2=0xfffffffffffffff8  x3=0x00000074e8c782d8
+ x4=0xffffff8c882ab20b  x5=0x0000000000000003  x6=0x000000000000005d  x7=0x00000074e7ddca00
+ x8=0x0000007010703d10  x9=0xc66d95ab98500057 x10=0x0000000000000000 x11=0x0000000000000002
+x12=0x0000000108cc7d4c x13=0x0000000000000000 x14=0x0000000108cc7d43 x15=0x00000000000000df
+x16=0x0000000180c80a1c x17=0x00000001e83ed020 x18=0x0000000000000000 x19=0x0000000000000000
+x20=0x0000000000000002 x21=0x0000000000000000 x22=0x0000000170f26970 x23=0x00000074e920e418
+x24=0x0000000000000000 x25=0x0000000000000000 x26=0x0000000108e41000 x27=0x0000007f00ad3000
+x28=0x0000007000db6000  fp=0x0000000170f24790  lr=0x00000001086acfcc  sp=0x0000000170f244c0
+pc=0x00000001086ad094 cpsr=0x0000000060001000
+
+Register to memory mapping:
+
+x0 =0x0000000170f24568 is pointing into the stack for thread: 0x00000074e7ddca00
+x1 =0x0000000170f23503 is pointing into the stack for thread: 0x00000074e7ddca00
+x2 =0xfffffffffffffff8 is an unknown value
+x3 =0x00000074e8c782d8 points into unknown readable memory: 0x6372735b206e776f | 6f 77 6e 20 5b 73 72 63
+x4 =0xffffff8c882ab20b is an unknown value
+x5 =0x0000000000000003 is an unknown value
+x6 =0x000000000000005d is an unknown value
+x7 =0x00000074e7ddca00 is a thread
+x8 =0x0000007010703d10 is an oop: java.lang.NoClassDefFoundError 
+{0x0000007010703d10} - klass: 'java/lang/NoClassDefFoundError' - flags: 
+
+ - ---- fields (total size 4 words):
+ - private transient 'depth' 'I' @8  0 (0x00000000)
+ - private transient 'backtrace' 'Ljava/lang/Object;' @12  a 'java/lang/Object'[7] {0x0000007010703d30} (0x020e07a6)
+ - private 'detailMessage' 'Ljava/lang/String;' @16  "com/eltek/Application (wrong name: com/eltek/components/AttachmentDisplay)"{0x0000007010703ca0} (0x020e0794)
+ - private 'cause' 'Ljava/lang/Throwable;' @20  a 'java/lang/NoClassDefFoundError'{0x0000007010703d10} (0x020e07a2)
+ - private 'stackTrace' '[Ljava/lang/StackTraceElement;' @24  a 'java/lang/StackTraceElement'[0] {0x0000007000911358} (0x0012226b)
+ - private 'suppressedExceptions' 'Ljava/util/List;' @28  a 'java/util/Collections$EmptyList'{0x0000007000911348} (0x00122269)
+x9 =0xc66d95ab98500057 is an unknown value
+x10=0x0 is null
+x11=0x0000000000000002 is an unknown value
+x12=0x0000000108cc7d4c: _ZZN11ClassLoader24file_name_for_class_nameEPKciE12class_suffix+0x11583 in /Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/server/libjvm.dylib at 0x0000000108028000
+x13=0x0 is null
+x14=0x0000000108cc7d43: _ZZN11ClassLoader24file_name_for_class_nameEPKciE12class_suffix+0x1157a in /Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/server/libjvm.dylib at 0x0000000108028000
+x15=223 is a compressed pointer to class: 0x0000007f0001be00
+jdk.internal.loader.NativeLibraries$LibraryPaths {0x0000007f0001be00}
+ - instance size:     1
+ - klass size:        73
+ - access:            synchronized 
+ - flags:             rewritten defined_by_boot_loader has_localvariable_table 
+ - state:             fully_initialized
+ - name:              'jdk/internal/loader/NativeLibraries$LibraryPaths'
+ - super:             'java/lang/Object'
+ - sub:               
+ - arrays:            null
+ - methods:           Array<T>(0x0000000124342cc0)
+ - method ordering:   Array<T>(0x0000000124342ea0)
+ - local interfaces:  Array<T>(0x0000000124000048)
+ - trans. interfaces: Array<T>(0x0000000124000048)
+ - secondary supers: Array<T>(0x0000000124000038)
+ - hash_slot:         46
+ - secondary bitmap: 0x0000000000000000
+ - constants:         constant pool [44] {0x0000007f0001ac58} for 'jdk/internal/loader/NativeLibraries$LibraryPaths' cache=0x0000000124342f50
+ - class loader data:  loader data: 0x00000074e8d04e60 of 'bootstrap'
+ - source file:       'NativeLibraries.java'
+ - inner classes:     Array<T>(0x0000000124342e60)
+ - nest members:     Array<T>(0x0000000124000020)
+ - permitted subclasses:     Array<T>(0x0000000124000020)
+ - java mirror:       a 'java/lang/Class'{0x0000007001fc7f00} = 'jdk/internal/loader/NativeLibraries$LibraryPaths'
+ - vtable length      5  (start addr: 0x0000007f0001c010)
+ - itable length      2 (start addr: 0x0000007f0001c038)
+ - ---- static fields (1 words):
+ - static final 'SYS_PATHS' '[Ljava/lang/String;' @112 
+ - static final 'USER_PATHS' '[Ljava/lang/String;' @116 
+ - ---- non-static fields (0 words):
+ - non-static oop maps (0 entries): 
+x16=0x0000000180c80a1c: pthread_mutex_unlock+0 in /usr/lib/system/libsystem_pthread.dylib at 0x0000000180c7f000
+x17=0x00000001e83ed020 points into unknown readable memory: 0x0000000180a6e6f0 | f0 e6 a6 80 01 00 00 00
+x18=0x0 is null
+x19=0x0 is null
+x20=0x0000000000000002 is an unknown value
+x21=0x0 is null
+x22=0x0000000170f26970 is pointing into the stack for thread: 0x00000074e7ddca00
+x23=0x00000074e920e418 points into unknown readable memory: 0x6e692f6b646a4c5b | 5b 4c 6a 64 6b 2f 69 6e
+x24=0x0 is null
+x25=0x0 is null
+x26=0x0000000108e41000: _dyld_private+0 in /Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/server/libjvm.dylib at 0x0000000108028000
+x27=0x0000007f00ad3000 is a pointer to class: 
+com.eltek.Application {0x0000007f00ad3000}
+ - instance size:     31
+ - klass size:        432
+ - access:            public synchronized 
+ - flags:             rewritten has_nonstatic_fields should_verify_class defined_by_app_loader has_localvariable_table has_resolved_methods 
+ - state:             fully_initialized
+ - name:              'com/eltek/Application'
+ - super:             'er/extensions/appserver/ERXApplication'
+ - sub:               
+ - arrays:            null
+ - methods:           Array<T>(0x00000001273c6230)
+ - method ordering:   Array<T>(0x00000001273dac38)
+ - local interfaces:  Array<T>(0x0000000124000048)
+ - trans. interfaces: Array<T>(0x0000000125093f68)
+ - secondary supers: Array<T>(0x00000001273a2f98)
+ - hash_slot:         9
+ - secondary bitmap: 0x0200480000004000
+ - constants:         constant pool [111]/operands[5] {0x00000001273caf78} for 'com/eltek/Application' cache=0x0000000127696a98
+ - class loader data:  loader data: 0x00000074e7d07de0 for instance a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x0000007000800000}
+ - source file:       'Application.java'
+ - source debug extension:       SMAP
+Application.java
+Java
+*S jdt
+*F
+1 Application.java
+2 file:/Users/asacksadmin/Developer/Master-WO/InvDepot/target/classes/
+*L
+*E
+
+ - inner classes:     Array<T>(0x00000001273b9b08)
+ - nest members:     Array<T>(0x0000000124000020)
+ - permitted subclasses:     Array<T>(0x0000000124000020)
+ - java mirror:       a 'java/lang/Class'{0x0000007002a55f80} = 'com/eltek/Application'
+ - vtable length      314  (start addr: 0x0000007f00ad3210)
+ - itable length      51 (start addr: 0x0000007f00ad3be0)
+ - ---- static fields (0 words):
+ - ---- non-static fields (60 words):
+ - '_timeOut' 'J' @8 
+ - private volatile '_activeSessionsCount' 'I' @16 
+ - private volatile '_minimumActiveSessions' 'I' @20 
+ - private volatile '_permanentCacheSize' 'I' @24 
+ - private volatile '_pageCacheSize' 'I' @28 
+ - private volatile '_pageFragmentCacheSize' 'I' @32 
+ - protected '_cgiAdaptorURLParsed' 'Z' @36 
+ - protected volatile '_terminating' 'Z' @37 
+ - public '_unsetHost' 'Z' @38 
+ - private volatile '_refusingNewClients' 'Z' @39 
+ - private volatile '_dynamicLoadingEnabled' 'Z' @40 
+ - private volatile '_pageRefreshOnBacktrackEnabled' 'Z' @41 
+ - private '_isMultiThreaded' 'Z' @42 
+ - private '_allowsConcurrentRequestHandling' 'Z' @43 
+ - private final '_inRapidTurnaroundMode' 'Z' @44 
+ - private final '_name' 'Ljava/lang/String;' @48 
+ - private '_agentID' 'Ljava/lang/String;' @52 
+ - private '_jmxDomain' 'Ljava/lang/String;' @56 
+ - private '_mbs' 'Ljavax/management/MBeanServer;' @60 
+ - private volatile '_sessionStore' 'Lcom/webobjects/appserver/WOSessionStore;' @64 
+ - private volatile '_statisticsStore' 'Lcom/webobjects/appserver/WOStatisticsStore;' @68 
+ - private final '_componentDefinitionCache' 'Lcom/webobjects/foundation/_NSThreadsafeMutableDictionary;' @72 
+ - private final '_requestHandlers' 'Lcom/webobjects/foundation/_NSThreadsafeMutableDictionary;' @76 
+ - private volatile '_defaultRequestHandler' 'Lcom/webobjects/appserver/WORequestHandler;' @80 
+ - private volatile '_resourceManager' 'Lcom/webobjects/appserver/WOResourceManager;' @84 
+ - private volatile '_defaultAdaptor' 'Lcom/webobjects/appserver/WOAdaptor;' @88 
+ - private '_runLoopDate' 'Lcom/webobjects/foundation/NSTimestamp;' @92 
+ - private '_timer' 'Lcom/webobjects/appserver/WOTimer;' @96 
+ - '_applicationTimer' 'Ljava/util/Timer;' @100 
+ - private '_currentRunLoop' 'Lcom/webobjects/appserver/_WORunLoop;' @104 
+ - private final '_globalLock' 'Ljava/lang/Object;' @108 
+ - private final '_recorder' 'Ljava/lang/Object;' @112 
+ - private '_adaptors' 'Lcom/webobjects/foundation/NSMutableArray;' @116 
+ - private '_hostAddress' 'Ljava/net/InetAddress;' @120 
+ - private final '_expectedLanguages' 'Lcom/webobjects/foundation/_NSThreadsafeMutableSet;' @124 
+ - private '_associationFactoryRegistry' 'Lcom/webobjects/appserver/WOAssociationFactoryRegistry;' @128 
+ - private '_namespaceProvider' 'Lcom/webobjects/appserver/parser/woml/WOMLNamespaceProvider;' @132 
+ - private final '_createContextForRequestParams' '[Ljava/lang/Class;' @136 
+ - private '_adaptorName' 'Ljava/lang/String;' @140 
+ - private '_adaptorPath' 'Ljava/lang/String;' @144 
+ - private '_documentRoot' 'Ljava/lang/String;' @148 
+ - private '_responseDelegate' 'Ler/extensions/appserver/ajax/ERXAjaxApplication$ERXAjaxResponseDelegate;' @152 
+ - private '_allowContextPageResponse' 'Ljava/lang/Boolean;' @156 
+ - protected '_initializedAdaptors' 'Z' @45 
+ - private '_isMemoryLow' 'Z' @46 
+ - private '_isMemoryStarved' 'Z' @47 
+ - protected '_memoryStarvedThreshold' 'Ljava/math/BigDecimal;' @160 
+ - protected '_memoryLowThreshold' 'Ljava/math/BigDecimal;' @164 
+ - protected '_replaceApplicationPathPattern' 'Ljava/lang/String;' @168 
+ - protected '_replaceApplicationPathReplace' 'Ljava/lang/String;' @172 
+ - protected '_sslHost' 'Ljava/lang/String;' @176 
+ - protected '_sslPort' 'Ljava/lang/Integer;' @180 
+ - private '_proxyBalancerRoute' 'Ljava/lang/String;' @184 
+ - private '_proxyBalancerCookieName' 'Ljava/lang/String;' @188 
+ - private '_proxyBalancerCookiePath' 'Ljava/lang/String;' @192 
+ - private '_publicHost' 'Ljava/lang/String;' @196 
+ - protected '_killTimer' 'Lcom/webobjects/appserver/WOTimer;' @200 
+ - private '_userDefaultName' 'Ljava/lang/String;' @204 
+ - protected 'useComponentActionRedirection' 'Ljava/lang/Boolean;' @208 
+ - protected '_streamingRequestHandlerKeys' 'Lcom/webobjects/foundation/NSMutableArray;' @212 
+ - protected '_useSessionStoreDeadlockDetection' 'Ljava/lang/Boolean;' @216 
+ - private '_sessions' 'Ljava/util/Map;' @220 
+ - protected '_responseCompressionEnabled' 'Ljava/lang/Boolean;' @224 
+ - protected '_responseCompressionTypes' 'Lcom/webobjects/foundation/NSSet;' @228 
+ - private '_debugComponents' 'Lcom/webobjects/foundation/NSMutableSet;' @232 
+ - private '_lastGC' 'J' @240 
+ - non-static oop maps (1 entries): 48-232 
+x28=0x0000007000db6000 is an oop: java.security.ProtectionDomain 
+{0x0000007000db6000} - klass: 'java/security/ProtectionDomain' - flags: 
+
+ - ---- fields (total size 4 words):
+ - private 'hasAllPerm' 'Z' @8  false (0x00)
+ - private final 'staticPermissions' 'Z' @9  false (0x00)
+ - private final 'codesource' 'Ljava/security/CodeSource;' @12  a 'java/security/CodeSource'{0x0000007000db6020} (0x001b6c04)
+ - private final 'classloader' 'Ljava/lang/ClassLoader;' @16  a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x0000007000800000} (0x00100000)
+ - private final 'principals' '[Ljava/security/Principal;' @20  a 'java/security/Principal'[0] {0x0000007000db6158} (0x001b6c2b)
+ - private 'permissions' 'Ljava/security/PermissionCollection;' @24  a 'java/security/Permissions'{0x0000007000db6168} (0x001b6c2d)
+ fp=0x0000000170f24790 is pointing into the stack for thread: 0x00000074e7ddca00
+ lr=0x00000001086acfcc: _ZN26VM_EnhancedRedefineClasses28do_topological_class_sortingEP17ResourceHashtableIP5KlassS2_Lj1031ELN6AnyObj15allocation_typeE2EL6MemTag9EXadL_Z16old2new_ptr_hashRKS2_EEXadL_Z18old2new_ptr_equalsS7_S7_EEEP10JavaThread+0x1cc in /Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/server/libjvm.dylib at 0x0000000108028000
+ sp=0x0000000170f244c0 is pointing into the stack for thread: 0x00000074e7ddca00
+
+Top of Stack: (sp=0x0000000170f244c0)
+0x0000000170f244c0:   0000000000000001 00000000000003d8   ................
+0x0000000170f244d0:   00000074e920e400 00000074e9340cf0   .. .t.....4.t...
+0x0000000170f244e0:   0000000170f24520 0000000170f24858    E.p....XH.p....
+0x0000000170f244f0:   00000074e920e418 00000074e920e7f0   .. .t..... .t...
+0x0000000170f24500:   0000007f00b5ee00 00000074e7ddca00   ............t...
+0x0000000170f24510:   0000000000000000 00000074e92d2418   .........$-.t...
+0x0000000170f24520:   0000000000000000 0000000000000000   ................
+0x0000000170f24530:   0000000170000000 0000000108df47d8   ...p.....G......
+0x0000000170f24540:   00000074e8c7e000 00000074e8c8089f   ....t.......t...
+0x0000000170f24550:   00000074e8c7fad2 0000000108cf20ce   ....t.... ......
+0x0000000170f24560:   00000074e7000001 0000000170f24538   ....t...8E.p....
+0x0000000170f24570:   00000074eb92d538 00000074e7d07de0   8...t....}..t...
+0x0000000170f24580:   000001cae8b90000 0000000000000000   ................
+0x0000000170f24590:   0000000000000000 00000001276ef000   ..........n'....
+0x0000000170f245a0:   0000000000000000 0000000000000000   ................
+0x0000000170f245b0:   0000000000000000 0000000000000000   ................
+0x0000000170f245c0:   0000000000000000 0000000000000000   ................
+0x0000000170f245d0:   0000000000000000 0000000000000000   ................
+0x0000000170f245e0:   0000000000000000 0000000000000000   ................
+0x0000000170f245f0:   0000000000000000 0000000000000000   ................
+0x0000000170f24600:   0000000000000000 0000000000000000   ................
+0x0000000170f24610:   0000000000000000 0000000000000000   ................
+0x0000000170f24620:   0000000000000000 0000000000000000   ................
+0x0000000170f24630:   0000000000000000 0000000000000000   ................
+0x0000000170f24640:   0000000000000000 0000000000000000   ................
+0x0000000170f24650:   0000000000000000 0000000170f24688   .........F.p....
+0x0000000170f24660:   0000000170f24680 00000001088991e8   .F.p............
+0x0000000170f24670:   00000074e7d6c220 0000000170f24710    ...t....G.p....
+0x0000000170f24680:   0000007f00b5ee00 0000000170f26970   ........pi.p....
+0x0000000170f24690:   0000000170f246a0 00000001088e46ac   .F.p.....F......
+0x0000000170f246a0:   0000000170f246c0 0000000108b52460   .F.p....`$......
+0x0000000170f246b0:   0000000000002693 0000000170f24788   .&.......G.p....
+
+Instructions: (pc=0x00000001086ad094)
+  0x00000001086acf94:   09 11 00 f9 1c 00 00 f9 e0 2f 00 f9 e8 1b 42 a9
+  0x00000001086acfa4:   1f 7d 00 a9 1f f1 00 b8 62 0f 40 f9 63 4f 40 f9
+  0x00000001086acfb4:   e0 a3 02 91 e1 e3 01 91 e4 63 01 91 05 00 80 52
+  0x00000001086acfc4:   e7 27 40 f9 50 bb ef 97 f8 6b 40 f9 f3 2b 00 f9
+  0x00000001086acfd4:   f8 05 00 b4 c9 4a 40 f9 28 01 40 b9 1f 05 00 71
+  0x00000001086acfe4:   6b 05 00 54 29 05 40 f9 2a 01 40 f9 5f 01 18 eb
+  0x00000001086acff4:   60 01 00 54 2b 00 80 52 ea 03 0b aa 1f 01 0b eb
+  0x00000001086ad004:   a0 00 00 54 2c 79 6a f8 4b 05 00 91 9f 01 18 eb
+  0x00000001086ad014:   41 ff ff 54 5f 01 08 eb a2 03 00 54 bf 02 14 6b
+  0x00000001086ad024:   01 03 00 54 88 06 00 11 1f 01 14 6a 09 00 80 12
+  0x00000001086ad034:   84 02 49 7a 08 11 c0 5a e8 03 08 4b 29 00 80 52
+  0x00000001086ad044:   28 21 c8 1a 1c d5 94 1a e0 03 1c aa 01 02 80 52
+  0x00000001086ad054:   eb 4a f8 97 9f 06 00 71 0b 01 00 54 08 00 80 d2
+  0x00000001086ad064:   89 7e 7c d3 e0 6a e8 3c 00 68 a8 3c 08 41 00 91
+  0x00000001086ad074:   3f 01 08 eb 81 ff ff 54 f4 03 1c aa f7 03 00 aa
+  0x00000001086ad084:   e8 d2 35 8b b5 06 00 11 18 6d 00 a9 f9 97 40 f9
+=>0x00000001086ad094:   28 03 40 b9 1f 05 00 71 eb ef ff 54 18 00 80 d2
+  0x00000001086ad0a4:   3a 23 00 91 0a 00 00 14 f4 03 1c aa f7 03 00 aa
+  0x00000001086ad0b4:   e8 d2 35 8b b5 06 00 11 13 6d 00 a9 28 03 40 b9
+  0x00000001086ad0c4:   18 07 00 91 1f c3 28 eb 6a ee ff 54 53 7b 78 f8
+  0x00000001086ad0d4:   93 ff ff b4 ca 4a 40 f9 49 01 40 b9 3f 05 00 71
+  0x00000001086ad0e4:   0b ff ff 54 4a 05 40 f9 4b 01 40 f9 7f 01 13 eb
+  0x00000001086ad0f4:   60 01 00 54 2c 00 80 52 eb 03 0c aa 3f 01 0c eb
+  0x00000001086ad104:   a0 00 00 54 4d 79 6b f8 6c 05 00 91 bf 01 13 eb
+  0x00000001086ad114:   41 ff ff 54 7f 01 09 eb 42 fd ff 54 bf 02 14 6b
+  0x00000001086ad124:   81 fc ff 54 88 06 00 11 1f 01 14 6a 09 00 80 12
+  0x00000001086ad134:   84 02 49 7a 08 11 c0 5a e8 03 08 4b 29 00 80 52
+  0x00000001086ad144:   28 21 c8 1a 1c d5 94 1a e0 03 1c aa 01 02 80 52
+  0x00000001086ad154:   ab 4a f8 97 9f 06 00 71 8b fa ff 54 08 00 80 d2
+  0x00000001086ad164:   89 7e 7c d3 e0 6a e8 3c 00 68 a8 3c 08 41 00 91
+  0x00000001086ad174:   3f 01 08 eb 81 ff ff 54 cc ff ff 17 15 00 80 52
+  0x00000001086ad184:   c8 4a 40 f9 09 01 40 b9 3f 05 00 71 e1 0f c0 3d
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x0000000000000001 is an unknown value
+stack at sp + 1 slots: 984 is a compressed pointer to class: 0x0000007f0007b000
+sun.nio.cs.HistoricallyNamedCharset {0x0000007f0007b000}
+ - instance size:     1
+ - klass size:        72
+ - access:            public interface abstract 
+ - flags:             rewritten defined_by_boot_loader 
+ - state:             linked
+ - name:              'sun/nio/cs/HistoricallyNamedCharset'
+ - super:             'java/lang/Object'
+ - sub:               
+ - nof implementors:  2
+ - arrays:            null
+ - methods:           Array<T>(0x00000001241cea28)
+ - method ordering:   Array<T>(0x00000001241ceaf8)
+ - local interfaces:  Array<T>(0x0000000124000048)
+ - trans. interfaces: Array<T>(0x0000000124000048)
+ - secondary supers: Array<T>(0x0000000124000038)
+ - hash_slot:         14
+ - secondary bitmap: 0x0000000000000000
+ - constants:         constant pool [9] {0x00000001241ce980} for 'sun/nio/cs/HistoricallyNamedCharset' cache=0x00000001241cf038
+ - class loader data:  loader data: 0x00000074e8d04e60 of 'bootstrap'
+ - source file:       'HistoricallyNamedCharset.java'
+ - inner classes:     Array<T>(0x0000000124000020)
+ - nest members:     Array<T>(0x0000000124000020)
+ - permitted subclasses:     Array<T>(0x0000000124000020)
+ - java mirror:       a 'java/lang/Class'{0x0000007001fcec68} = 'sun/nio/cs/HistoricallyNamedCharset'
+ - vtable length      5  (start addr: 0x0000007f0007b210)
+ - itable length      0 (start addr: 0x0000007f0007b238)
+ - ---- static fields (0 words):
+ - ---- non-static fields (0 words):
+ - non-static oop maps (0 entries): 
+stack at sp + 2 slots: 0x00000074e920e400 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+stack at sp + 3 slots: 0x00000074e9340cf0 points into unknown readable memory: 0x0000000000000002 | 02 00 00 00 00 00 00 00
+stack at sp + 4 slots: 0x0000000170f24520 is pointing into the stack for thread: 0x00000074e7ddca00
+stack at sp + 5 slots: 0x0000000170f24858 is pointing into the stack for thread: 0x00000074e7ddca00
+stack at sp + 6 slots: 0x00000074e920e418 points into unknown readable memory: 0x6e692f6b646a4c5b | 5b 4c 6a 64 6b 2f 69 6e
+stack at sp + 7 slots: 0x00000074e920e7f0 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+
+Lock stack of current Java thread (top to bottom):
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000074eccaa420, length=39, elements={
+0x0000000102909e20, 0x00000074e90e0800, 0x00000074e90e1000, 0x00000074e90e1800,
+0x00000074e90e2000, 0x00000074e90e2800, 0x00000074e90e3000, 0x00000074e8cd1e00,
+0x00000074e8cd2800, 0x00000074e7ddca00, 0x00000074e7ddd400, 0x00000074e7ddde00,
+0x00000074e92c4000, 0x00000074e91eb800, 0x00000074e91eb000, 0x00000074e924f800,
+0x00000074eb8ea000, 0x00000074ebbff000, 0x00000074ec448000, 0x00000074ec449800,
+0x00000074ec5b2000, 0x00000074ec5b1000, 0x00000074ec758000, 0x00000074ec75a800,
+0x00000074ec69b800, 0x00000074ecc51800, 0x00000074eb49c800, 0x00000074eb49e800,
+0x00000074eb9db000, 0x00000074ecc52800, 0x00000074ecd31800, 0x00000074ecd32000,
+0x00000074ecd5d800, 0x00000074eb4c4000, 0x00000074ecddf000, 0x00000074ece00800,
+0x00000074ece01800, 0x00000074ece02800, 0x00000074ece2b000
+}
+
+Java Threads: ( => current thread )
+  0x0000000102909e20 JavaThread "main"                              [_thread_blocked, id=6403, stack(0x000000016dcf8000,0x000000016defb000) (2060K)]
+  0x00000074e90e0800 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=28419, stack(0x000000016ee70000,0x000000016f073000) (2060K)]
+  0x00000074e90e1000 JavaThread "Reference Handler"          daemon [_thread_blocked, id=23555, stack(0x000000016f07c000,0x000000016f27f000) (2060K)]
+  0x00000074e90e1800 JavaThread "Finalizer"                  daemon [_thread_blocked, id=23811, stack(0x000000016f288000,0x000000016f48b000) (2060K)]
+  0x00000074e90e2000 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=27651, stack(0x000000016f494000,0x000000016f697000) (2060K)]
+  0x00000074e90e2800 JavaThread "Service Thread"             daemon [_thread_blocked, id=24579, stack(0x000000016f6a0000,0x000000016f8a3000) (2060K)]
+  0x00000074e90e3000 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=27139, stack(0x000000016f8ac000,0x000000016faaf000) (2060K)]
+  0x00000074e8cd1e00 JavaThread "C2 CompilerThread0"         daemon [_thread_in_native, id=26883, stack(0x000000016fab8000,0x000000016fcbb000) (2060K)]
+  0x00000074e8cd2800 JavaThread "C1 CompilerThread0"         daemon [_thread_in_native, id=26627, stack(0x000000016fcc4000,0x000000016fec7000) (2060K)]
+=>0x00000074e7ddca00 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=33795, stack(0x0000000170d24000,0x0000000170f27000) (2060K)]
+  0x00000074e7ddd400 JavaThread "JDWP Event Helper Thread"   daemon [_thread_blocked, id=34307, stack(0x0000000170f30000,0x0000000171133000) (2060K)]
+  0x00000074e7ddde00 JavaThread "JDWP Command Reader"        daemon [_thread_in_native, id=41475, stack(0x000000017113c000,0x000000017133f000) (2060K)]
+  0x00000074e92c4000 JavaThread "FileSystemWatcher"          daemon [_thread_blocked, id=34819, stack(0x0000000171348000,0x000000017154b000) (2060K)]
+  0x00000074e91eb800 JavaThread "HotSwap Watcher"            daemon [_thread_blocked, id=40963, stack(0x0000000171554000,0x0000000171757000) (2060K)]
+  0x00000074e91eb000 JavaThread "HotSwap Dispatcher"         daemon [_thread_blocked, id=36099, stack(0x0000000171760000,0x0000000171963000) (2060K)]
+  0x00000074e924f800 JavaThread "Thread-2"                   daemon [_thread_blocked, id=36355, stack(0x000000017196c000,0x0000000171b6f000) (2060K)]
+  0x00000074eb8ea000 JavaThread "Notification Thread"        daemon [_thread_blocked, id=39939, stack(0x0000000171b78000,0x0000000171d7b000) (2060K)]
+  0x00000074ebbff000 JavaThread "Cleaner-0"                  daemon [_thread_blocked, id=38403, stack(0x00000001723a8000,0x00000001725ab000) (2060K)]
+  0x00000074ec448000 JavaThread "vertx-blocked-thread-checker" daemon [_thread_blocked, id=37123, stack(0x00000001725b4000,0x00000001727b7000) (2060K)]
+  0x00000074ec449800 JavaThread "Session Timeout Thread"     daemon [_thread_blocked, id=37635, stack(0x00000001727c0000,0x00000001729c3000) (2060K)]
+  0x00000074ec5b2000 JavaThread "Cleaner-1"                  daemon [_thread_blocked, id=43523, stack(0x00000001729cc000,0x0000000172bcf000) (2060K)]
+  0x00000074ec5b1000 JavaThread "vert.x-eventloop-thread-0"         [_thread_in_native, id=65283, stack(0x0000000172bd8000,0x0000000172ddb000) (2060K)]
+  0x00000074ec758000 JavaThread "vert.x-internal-blocking-0"        [_thread_blocked, id=26123, stack(0x00000001700dc000,0x00000001702df000) (2060K)]
+  0x00000074ec75a800 JavaThread "vert.x-acceptor-thread-0"          [_thread_in_native, id=64259, stack(0x0000000172ff0000,0x00000001731f3000) (2060K)]
+  0x00000074ec69b800 JavaThread "vert.x-eventloop-thread-1"         [_thread_in_native, id=64003, stack(0x00000001731fc000,0x00000001733ff000) (2060K)]
+  0x00000074ecc51800 JavaThread "vert.x-worker-thread-0"            [_thread_blocked, id=64527, stack(0x0000000173448000,0x000000017364b000) (2060K)]
+  0x00000074eb49c800 JavaThread "vert.x-worker-thread-1"            [_thread_blocked, id=62979, stack(0x0000000173654000,0x0000000173857000) (2060K)]
+  0x00000074eb49e800 JavaThread "vert.x-worker-thread-2"            [_thread_blocked, id=44803, stack(0x0000000173860000,0x0000000173a63000) (2060K)]
+  0x00000074eb9db000 JavaThread "vert.x-worker-thread-3"            [_thread_blocked, id=45315, stack(0x0000000173a6c000,0x0000000173c6f000) (2060K)]
+  0x00000074ecc52800 JavaThread "vert.x-worker-thread-4"            [_thread_blocked, id=22795, stack(0x000000016fed0000,0x00000001700d3000) (2060K)]
+  0x00000074ecd31800 JavaThread "vert.x-worker-thread-5"            [_thread_blocked, id=25627, stack(0x0000000172de4000,0x0000000172fe7000) (2060K)]
+  0x00000074ecd32000 JavaThread "vert.x-worker-thread-6"            [_thread_blocked, id=45827, stack(0x0000000173c78000,0x0000000173e7b000) (2060K)]
+  0x00000074ecd5d800 JavaThread "vert.x-worker-thread-7"            [_thread_blocked, id=62467, stack(0x0000000173e84000,0x0000000174087000) (2060K)]
+  0x00000074eb4c4000 JavaThread "vert.x-worker-thread-8"            [_thread_blocked, id=61955, stack(0x0000000174090000,0x0000000174293000) (2060K)]
+  0x00000074ecddf000 JavaThread "vert.x-worker-thread-9"            [_thread_blocked, id=46339, stack(0x000000017429c000,0x000000017449f000) (2060K)]
+  0x00000074ece00800 JavaThread "vert.x-worker-thread-10"           [_thread_blocked, id=46851, stack(0x00000001744a8000,0x00000001746ab000) (2060K)]
+  0x00000074ece01800 JavaThread "vert.x-worker-thread-11"           [_thread_blocked, id=61699, stack(0x00000001746b4000,0x00000001748b7000) (2060K)]
+  0x00000074ece02800 JavaThread "vert.x-worker-thread-12"           [_thread_blocked, id=61187, stack(0x00000001748c0000,0x0000000174ac3000) (2060K)]
+  0x00000074ece2b000 JavaThread "vert.x-worker-thread-13"           [_thread_blocked, id=60163, stack(0x0000000174cd8000,0x0000000174edb000) (2060K)]
+Total: 39
+
+Other Threads:
+  0x00000074e90bd400 VMThread "VM Thread"                           [id=20227, stack(0x000000016eb4c000,0x000000016ed4f000) (2060K)]
+  0x00000074e90bc800 WatcherThread "VM Periodic Task Thread"        [id=21251, stack(0x000000016e940000,0x000000016eb43000) (2060K)]
+  0x0000000102913cc0 WorkerThread "GC Thread#0"                     [id=14339, stack(0x000000016df04000,0x000000016e107000) (2060K)]
+  0x00000074e7d60500 WorkerThread "GC Thread#1"                     [id=32771, stack(0x00000001702e8000,0x00000001704eb000) (2060K)]
+  0x00000074e7d60a00 WorkerThread "GC Thread#2"                     [id=33027, stack(0x00000001704f4000,0x00000001706f7000) (2060K)]
+  0x00000074e7d60f00 WorkerThread "GC Thread#3"                     [id=33283, stack(0x0000000170700000,0x0000000170903000) (2060K)]
+  0x00000074e7d61400 WorkerThread "GC Thread#4"                     [id=42499, stack(0x000000017090c000,0x0000000170b0f000) (2060K)]
+  0x00000074e7d61900 WorkerThread "GC Thread#5"                     [id=41987, stack(0x0000000170b18000,0x0000000170d1b000) (2060K)]
+  0x00000074e65a0500 WorkerThread "GC Thread#6"                     [id=39427, stack(0x0000000171d84000,0x0000000171f87000) (2060K)]
+  0x00000074e65a0a00 WorkerThread "GC Thread#7"                     [id=36611, stack(0x0000000171f90000,0x0000000172193000) (2060K)]
+  0x00000074e8cf8000 ConcurrentGCThread "G1 Main Marker"            [id=13059, stack(0x000000016e110000,0x000000016e313000) (2060K)]
+  0x00000074e8cf8500 WorkerThread "G1 Conc#0"                       [id=13827, stack(0x000000016e31c000,0x000000016e51f000) (2060K)]
+  0x00000074e65a0f00 WorkerThread "G1 Conc#1"                       [id=38659, stack(0x000000017219c000,0x000000017239f000) (2060K)]
+  0x00000074e8cf8a00 ConcurrentGCThread "G1 Refine#0"               [id=16643, stack(0x000000016e528000,0x000000016e72b000) (2060K)]
+  0x00000074e8cf8f00 ConcurrentGCThread "G1 Service"                [id=17155, stack(0x000000016e734000,0x000000016e937000) (2060K)]
+Total: 15
+
+Threads with active compile tasks:
+C2 CompilerThread0  146722 10687       4       java.util.concurrent.locks.AbstractQueuedSynchronizer$Node::getAndUnsetStatus (14 bytes)
+C1 CompilerThread0  146722 10688       2       jdk.internal.misc.Unsafe::getAndBitwiseAndInt (27 bytes)
+Total: 2
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000007000800000, size: 4096 MB, Compressed Oops mode: Non-zero disjoint base: 0x0000007000000000, Oop shift amount: 3
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000007f00000000-0x0000007f40000000, reserved size: 1073741824
+UseCompressedClassPointers 1, UseCompactObjectHeaders 1
+Narrow klass pointer bits 22, Max shift 10
+Narrow klass base: 0x0000007f00000000, Narrow klass shift: 9
+Encoding Range: [0x0000007f00000000 - 0x0000007f80000000), (2147483648 bytes)
+Klass Range:    [0x0000007f00000000 - 0x0000007f40000000), (1073741824 bytes)
+Klass ID Range:  [1 - 2097152) (2097151)
+Protection zone: [0x0000007f00000000 - 0x0000007f00010000), (65536 bytes)
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+ CPUs: 8 total, 8 available
+ Memory: 16384M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Non-zero disjoint base)
+ Heap Region Size: 2M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 256M
+ Heap Max Capacity: 4G
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total reserved 4194304K, committed 104448K, used 37857K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 0 survivors (0K)
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000007000800000, 0x00000070009e0c90, 0x0000007000a00000| 93%| O|  |TAMS 0x0000007000800000| PB 0x0000007000800000| Untracked |  0
+|   1|0x0000007000a00000, 0x0000007000bfe028, 0x0000007000c00000| 99%| O|  |TAMS 0x0000007000a00000| PB 0x0000007000a00000| Untracked |  0
+|   2|0x0000007000c00000, 0x0000007000dff8c8, 0x0000007000e00000| 99%| O|  |TAMS 0x0000007000c00000| PB 0x0000007000c00000| Untracked |  0
+|   3|0x0000007000e00000, 0x0000007000fffff8, 0x0000007001000000| 99%| O|  |TAMS 0x0000007000e00000| PB 0x0000007000e00000| Untracked |  0
+|   4|0x0000007001000000, 0x00000070011ffff8, 0x0000007001200000| 99%| O|  |TAMS 0x0000007001000000| PB 0x0000007001000000| Untracked |  0
+|   5|0x0000007001200000, 0x00000070013fffd8, 0x0000007001400000| 99%| O|  |TAMS 0x0000007001200000| PB 0x0000007001200000| Untracked |  0
+|   6|0x0000007001400000, 0x00000070015fffb8, 0x0000007001600000| 99%| O|  |TAMS 0x0000007001400000| PB 0x0000007001400000| Untracked |  0
+|   7|0x0000007001600000, 0x00000070017fffd8, 0x0000007001800000| 99%| O|  |TAMS 0x0000007001600000| PB 0x0000007001600000| Untracked |  0
+|   8|0x0000007001800000, 0x00000070019ffff8, 0x0000007001a00000| 99%| O|  |TAMS 0x0000007001800000| PB 0x0000007001800000| Untracked |  0
+|   9|0x0000007001a00000, 0x0000007001bfffe8, 0x0000007001c00000| 99%| O|  |TAMS 0x0000007001a00000| PB 0x0000007001a00000| Untracked |  0
+|  10|0x0000007001c00000, 0x0000007001dffff8, 0x0000007001e00000| 99%| O|  |TAMS 0x0000007001c00000| PB 0x0000007001c00000| Untracked |  0
+|  11|0x0000007001e00000, 0x0000007001fffff8, 0x0000007002000000| 99%| O|  |TAMS 0x0000007001e00000| PB 0x0000007001e00000| Untracked |  0
+|  12|0x0000007002000000, 0x00000070020f7bd8, 0x0000007002200000| 48%| O|  |TAMS 0x0000007002000000| PB 0x0000007002000000| Untracked |  0
+|  13|0x0000007002200000, 0x00000070023ffff8, 0x0000007002400000| 99%| O|  |TAMS 0x0000007002200000| PB 0x0000007002200000| Untracked |  0
+|  14|0x0000007002400000, 0x00000070025fdd30, 0x0000007002600000| 99%| O|  |TAMS 0x0000007002400000| PB 0x0000007002400000| Untracked |  0
+|  15|0x0000007002600000, 0x0000007002710b50, 0x0000007002800000| 53%| O|  |TAMS 0x0000007002600000| PB 0x0000007002600000| Untracked |  0
+|  16|0x0000007002800000, 0x0000007002800000, 0x0000007002a00000|  0%| F|  |TAMS 0x0000007002800000| PB 0x0000007002800000| Untracked |  0
+|  17|0x0000007002a00000, 0x0000007002b7b988, 0x0000007002c00000| 74%| O|  |TAMS 0x0000007002a00000| PB 0x0000007002a00000| Untracked |  0
+|  18|0x0000007002c00000, 0x0000007002dfffc0, 0x0000007002e00000| 99%| O|  |TAMS 0x0000007002c00000| PB 0x0000007002c00000| Untracked |  0
+|  19|0x0000007002e00000, 0x0000007002e00000, 0x0000007003000000|  0%| F|  |TAMS 0x0000007002e00000| PB 0x0000007002e00000| Untracked |  0
+|  20|0x0000007003000000, 0x0000007003000000, 0x0000007003200000|  0%| F|  |TAMS 0x0000007003000000| PB 0x0000007003000000| Untracked |  0
+|  21|0x0000007003200000, 0x0000007003200000, 0x0000007003400000|  0%| F|  |TAMS 0x0000007003200000| PB 0x0000007003200000| Untracked |  0
+|  22|0x0000007003400000, 0x00000070035981e8, 0x0000007003600000| 79%| O|  |TAMS 0x0000007003400000| PB 0x0000007003400000| Untracked |  0
+|  23|0x0000007003600000, 0x0000007003600000, 0x0000007003800000|  0%| F|  |TAMS 0x0000007003600000| PB 0x0000007003600000| Untracked |  0
+|  24|0x0000007003800000, 0x0000007003800000, 0x0000007003a00000|  0%| F|  |TAMS 0x0000007003800000| PB 0x0000007003800000| Untracked |  0
+|  25|0x0000007003a00000, 0x0000007003a00000, 0x0000007003c00000|  0%| F|  |TAMS 0x0000007003a00000| PB 0x0000007003a00000| Untracked |  0
+|  26|0x0000007003c00000, 0x0000007003c00000, 0x0000007003e00000|  0%| F|  |TAMS 0x0000007003c00000| PB 0x0000007003c00000| Untracked |  0
+|  27|0x0000007003e00000, 0x0000007003e00000, 0x0000007004000000|  0%| F|  |TAMS 0x0000007003e00000| PB 0x0000007003e00000| Untracked |  0
+|  28|0x0000007004000000, 0x0000007004000000, 0x0000007004200000|  0%| F|  |TAMS 0x0000007004000000| PB 0x0000007004000000| Untracked |  0
+|  29|0x0000007004200000, 0x0000007004200000, 0x0000007004400000|  0%| F|  |TAMS 0x0000007004200000| PB 0x0000007004200000| Untracked |  0
+|  30|0x0000007004400000, 0x0000007004400000, 0x0000007004600000|  0%| F|  |TAMS 0x0000007004400000| PB 0x0000007004400000| Untracked |  0
+|  31|0x0000007004600000, 0x0000007004600000, 0x0000007004800000|  0%| F|  |TAMS 0x0000007004600000| PB 0x0000007004600000| Untracked |  0
+|  32|0x0000007004800000, 0x0000007004800000, 0x0000007004a00000|  0%| F|  |TAMS 0x0000007004800000| PB 0x0000007004800000| Untracked |  0
+|  33|0x0000007004a00000, 0x0000007004a00000, 0x0000007004c00000|  0%| F|  |TAMS 0x0000007004a00000| PB 0x0000007004a00000| Untracked |  0
+|  34|0x0000007004c00000, 0x0000007004c00000, 0x0000007004e00000|  0%| F|  |TAMS 0x0000007004c00000| PB 0x0000007004c00000| Untracked |  0
+|  35|0x0000007004e00000, 0x0000007004e00000, 0x0000007005000000|  0%| F|  |TAMS 0x0000007004e00000| PB 0x0000007004e00000| Untracked |  0
+|  36|0x0000007005000000, 0x0000007005000000, 0x0000007005200000|  0%| F|  |TAMS 0x0000007005000000| PB 0x0000007005000000| Untracked |  0
+|  37|0x0000007005200000, 0x0000007005200000, 0x0000007005400000|  0%| F|  |TAMS 0x0000007005200000| PB 0x0000007005200000| Untracked |  0
+|  38|0x0000007005400000, 0x0000007005400000, 0x0000007005600000|  0%| F|  |TAMS 0x0000007005400000| PB 0x0000007005400000| Untracked |  0
+|  39|0x0000007005600000, 0x0000007005600000, 0x0000007005800000|  0%| F|  |TAMS 0x0000007005600000| PB 0x0000007005600000| Untracked |  0
+|  40|0x0000007005800000, 0x0000007005800000, 0x0000007005a00000|  0%| F|  |TAMS 0x0000007005800000| PB 0x0000007005800000| Untracked |  0
+|  41|0x0000007005a00000, 0x0000007005a00000, 0x0000007005c00000|  0%| F|  |TAMS 0x0000007005a00000| PB 0x0000007005a00000| Untracked |  0
+|  42|0x0000007005c00000, 0x0000007005c00000, 0x0000007005e00000|  0%| F|  |TAMS 0x0000007005c00000| PB 0x0000007005c00000| Untracked |  0
+|  43|0x0000007005e00000, 0x0000007005e00000, 0x0000007006000000|  0%| F|  |TAMS 0x0000007005e00000| PB 0x0000007005e00000| Untracked |  0
+|  44|0x0000007006000000, 0x0000007006000000, 0x0000007006200000|  0%| F|  |TAMS 0x0000007006000000| PB 0x0000007006000000| Untracked |  0
+|  45|0x0000007006200000, 0x0000007006200000, 0x0000007006400000|  0%| F|  |TAMS 0x0000007006200000| PB 0x0000007006200000| Untracked |  0
+|  46|0x0000007006400000, 0x0000007006400000, 0x0000007006600000|  0%| F|  |TAMS 0x0000007006400000| PB 0x0000007006400000| Untracked |  0
+|  47|0x0000007006600000, 0x0000007006600000, 0x0000007006800000|  0%| F|  |TAMS 0x0000007006600000| PB 0x0000007006600000| Untracked |  0
+|  48|0x0000007006800000, 0x0000007006800000, 0x0000007006a00000|  0%| F|  |TAMS 0x0000007006800000| PB 0x0000007006800000| Untracked |  0
+| 127|0x0000007010600000, 0x0000007010800000, 0x0000007010800000|100%| E|  |TAMS 0x0000007010600000| PB 0x0000007010600000| Complete |  0
+|2047|0x0000007100600000, 0x0000007100800000, 0x0000007100800000|100%| E|CS|TAMS 0x0000007100600000| PB 0x0000007100600000| Complete |  0
+
+Card table byte_map: [0x000000011bea4000,0x000000011c6a4000] _byte_map_base: 0x00000000e3ea0000
+
+Marking Bits: (CMBitMap*) 0x00000001029143f0
+ Bits: [0x000000011c6a4000, 0x00000001206a4000)
+
+Polling page: 0x00000001021bc000
+
+Metaspace:
+Metaspace        used 67232K, committed 67776K, reserved 1114112K
+ class space     used 11494K, committed 11776K, reserved 1048576K
+
+Usage:
+  Non-class:     54.43 MB used.
+      Class:     11.23 MB used.
+       Both:     65.66 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      54.69 MB ( 85%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,      11.50 MB (  1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      66.19 MB (  6%) committed. 
+
+Chunk freelists:
+   Non-Class:  9.06 MB
+       Class:  4.50 MB
+        Both:  13.56 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 110.25 MB
+CDS: off
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+UseCompressedClassPointers 1, UseCompactObjectHeaders 1
+Narrow klass pointer bits 22, Max shift 10
+Narrow klass base: 0x0000007f00000000, Narrow klass shift: 9
+Encoding Range: [0x0000007f00000000 - 0x0000007f80000000), (2147483648 bytes)
+Klass Range:    [0x0000007f00000000 - 0x0000007f40000000), (1073741824 bytes)
+Klass ID Range:  [1 - 2097152) (2097151)
+Protection zone: [0x0000007f00000000 - 0x0000007f00010000), (65536 bytes)
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 9.
+num_arena_births: 706.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 1059.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 9.
+num_chunks_taken_from_freelist: 2417.
+num_chunk_merges: 9.
+num_chunk_splits: 1648.
+num_chunks_enlarged: 1232.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120032Kb used=2433Kb max_used=3350Kb free=117598Kb
+ bounds [0x000000011496c000, 0x0000000114cbc000, 0x000000011bea4000]
+CodeHeap 'profiled nmethods': size=120032Kb used=7789Kb max_used=12196Kb free=112242Kb
+ bounds [0x000000010cea0000, 0x000000010da90000, 0x00000001143d8000]
+CodeHeap 'non-nmethods': size=5712Kb used=1568Kb max_used=1706Kb free=4143Kb
+ bounds [0x00000001143d8000, 0x0000000114648000, 0x000000011496c000]
+CodeCache: size=245776Kb, used=11790Kb, max_used=17252Kb, free=233983Kb
+ total_blobs=5914, nmethods=5136, adapters=683, full_count=0
+Compilation: enabled, stopped_count=0, restarted_count=0
+
+Compilation events (20 events):
+Event: 146.600 Thread 0x00000074e8cd2800 10677   !   3       java.lang.Thread::sleepNanos (53 bytes)
+Event: 146.600 Thread 0x00000074e8cd2800 nmethod 10677 0x000000010d1006c8 code [0x000000010d1007c0, 0x000000010d101000]
+Event: 146.600 Thread 0x00000074e8cd2800 10678   !   3       java.lang.Thread::beforeSleep (32 bytes)
+Event: 146.600 Thread 0x00000074e8cd2800 nmethod 10678 0x000000010ceecd48 code [0x000000010ceece40, 0x000000010ceed1a0]
+Event: 146.600 Thread 0x00000074e8cd2800 10679       3       jdk.internal.event.ThreadSleepEvent::<init> (5 bytes)
+Event: 146.600 Thread 0x00000074e8cd2800 nmethod 10679 0x000000010d1c0f88 code [0x000000010d1c1080, 0x000000010d1c1260]
+Event: 146.606 Thread 0x00000074e8cd2800 10680   !   3       java.lang.Thread::afterSleep (13 bytes)
+Event: 146.606 Thread 0x00000074e8cd2800 nmethod 10680 0x000000010d04f708 code [0x000000010d04f800, 0x000000010d04fa38]
+Event: 146.606 Thread 0x00000074e8cd2800 10681       3       java.lang.Thread::sleep (29 bytes)
+Event: 146.606 Thread 0x00000074e8cd2800 nmethod 10681 0x000000010d068248 code [0x000000010d068340, 0x000000010d068630]
+Event: 146.618 Thread 0x00000074e8cd1e00 10682       4       jdk.internal.misc.Unsafe::weakCompareAndSetInt (11 bytes)
+Event: 146.619 Thread 0x00000074e8cd1e00 nmethod 10682 0x0000000114a0ddc8 code [0x0000000114a0dec0, 0x0000000114a0df60]
+Event: 146.619 Thread 0x00000074e8cd1e00 10683       4       java.util.concurrent.locks.AbstractQueuedSynchronizer$Node::<init> (5 bytes)
+Event: 146.619 Thread 0x00000074e8cd1e00 nmethod 10683 0x0000000114a7d948 code [0x0000000114a7da40, 0x0000000114a7dac8]
+Event: 146.681 Thread 0x00000074e8cd2800 10685   !   2       java.util.concurrent.LinkedBlockingDeque::pollFirst (84 bytes)
+Event: 146.681 Thread 0x00000074e8cd1e00 10684       4       java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject::unlinkCancelledWaiters (91 bytes)
+Event: 146.681 Thread 0x00000074e8cd2800 nmethod 10685 0x000000010d073a48 code [0x000000010d073b40, 0x000000010d0742e0]
+Event: 146.681 Thread 0x00000074e8cd2800 10686       2       java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject::awaitNanos (202 bytes)
+Event: 146.682 Thread 0x00000074e8cd1e00 nmethod 10684 0x0000000114ac7988 code [0x0000000114ac7a80, 0x0000000114ac7d88]
+Event: 146.682 Thread 0x00000074e8cd2800 nmethod 10686 0x000000010d21a1c8 code [0x000000010d21a2c0, 0x000000010d21aad0]
+
+GC Heap Usage History (20 events):
+Event: 19.393 {heap Before GC invocations=37 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 78466K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 22 young (45056K), 2 survivors (4096K)
+}
+Event: 19.394 {heap After GC invocations=38 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 37086K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 1 young (2048K), 1 survivors (2048K)
+}
+Event: 19.745 {heap Before GC invocations=38 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 78046K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 1 survivors (2048K)
+}
+Event: 19.747 {heap After GC invocations=39 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 37152K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 1 young (2048K), 1 survivors (2048K)
+}
+Event: 20.112 {heap Before GC invocations=39 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 78112K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 1 survivors (2048K)
+}
+Event: 20.113 {heap After GC invocations=40 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 37534K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 1 young (2048K), 1 survivors (2048K)
+}
+Event: 144.302 {heap Before GC invocations=40 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 76446K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 1 survivors (2048K)
+}
+Event: 144.305 {heap After GC invocations=41 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 37984K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 144.420 {heap Before GC invocations=41 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 76896K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 2 survivors (4096K)
+}
+Event: 144.421 {heap After GC invocations=42 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 37893K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 144.526 {heap Before GC invocations=42 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 76805K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 2 survivors (4096K)
+}
+Event: 144.527 {heap After GC invocations=43 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 38150K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 144.635 {heap Before GC invocations=43 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 77062K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 2 survivors (4096K)
+}
+Event: 144.637 {heap After GC invocations=44 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 38522K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 144.749 {heap Before GC invocations=44 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 77434K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 2 survivors (4096K)
+}
+Event: 144.750 {heap After GC invocations=45 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 38298K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 144.858 {heap Before GC invocations=45 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 86016K, used 77210K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 21 young (43008K), 2 survivors (4096K)
+}
+Event: 144.859 {heap After GC invocations=46 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 104448K, used 38393K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 2 young (4096K), 2 survivors (4096K)
+}
+Event: 145.106 {heap Before GC invocations=46 (full 0):
+ garbage-first heap   total reserved 4194304K, committed 104448K, used 89593K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 28 young (57344K), 2 survivors (4096K)
+}
+Event: 145.131 {heap After GC invocations=47 (full 1):
+ garbage-first heap   total reserved 4194304K, committed 104448K, used 35809K [0x0000007000800000, 0x0000007100800000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+}
+
+Metaspace Usage History (20 events):
+Event: 19.393 {metaspace Before GC invocations=37 (full 0):
+ Metaspace       used 62415K, committed 62848K, reserved 1114112K
+  class space    used 10672K, committed 10880K, reserved 1048576K
+}
+Event: 19.394 {metaspace After GC invocations=38 (full 0):
+ Metaspace       used 62415K, committed 62848K, reserved 1114112K
+  class space    used 10672K, committed 10880K, reserved 1048576K
+}
+Event: 19.745 {metaspace Before GC invocations=38 (full 0):
+ Metaspace       used 62459K, committed 62848K, reserved 1114112K
+  class space    used 10682K, committed 10880K, reserved 1048576K
+}
+Event: 19.747 {metaspace After GC invocations=39 (full 0):
+ Metaspace       used 62459K, committed 62848K, reserved 1114112K
+  class space    used 10682K, committed 10880K, reserved 1048576K
+}
+Event: 20.112 {metaspace Before GC invocations=39 (full 0):
+ Metaspace       used 62852K, committed 63296K, reserved 1114112K
+  class space    used 10742K, committed 10944K, reserved 1048576K
+}
+Event: 20.113 {metaspace After GC invocations=40 (full 0):
+ Metaspace       used 62852K, committed 63296K, reserved 1114112K
+  class space    used 10742K, committed 10944K, reserved 1048576K
+}
+Event: 144.302 {metaspace Before GC invocations=40 (full 0):
+ Metaspace       used 63619K, committed 64064K, reserved 1114112K
+  class space    used 10865K, committed 11072K, reserved 1048576K
+}
+Event: 144.305 {metaspace After GC invocations=41 (full 0):
+ Metaspace       used 63619K, committed 64064K, reserved 1114112K
+  class space    used 10865K, committed 11072K, reserved 1048576K
+}
+Event: 144.420 {metaspace Before GC invocations=41 (full 0):
+ Metaspace       used 64225K, committed 64768K, reserved 1114112K
+  class space    used 10949K, committed 11200K, reserved 1048576K
+}
+Event: 144.421 {metaspace After GC invocations=42 (full 0):
+ Metaspace       used 64225K, committed 64768K, reserved 1114112K
+  class space    used 10949K, committed 11200K, reserved 1048576K
+}
+Event: 144.526 {metaspace Before GC invocations=42 (full 0):
+ Metaspace       used 64755K, committed 65280K, reserved 1114112K
+  class space    used 11041K, committed 11264K, reserved 1048576K
+}
+Event: 144.527 {metaspace After GC invocations=43 (full 0):
+ Metaspace       used 64755K, committed 65280K, reserved 1114112K
+  class space    used 11041K, committed 11264K, reserved 1048576K
+}
+Event: 144.635 {metaspace Before GC invocations=43 (full 0):
+ Metaspace       used 65236K, committed 65792K, reserved 1114112K
+  class space    used 11125K, committed 11392K, reserved 1048576K
+}
+Event: 144.637 {metaspace After GC invocations=44 (full 0):
+ Metaspace       used 65236K, committed 65792K, reserved 1114112K
+  class space    used 11125K, committed 11392K, reserved 1048576K
+}
+Event: 144.749 {metaspace Before GC invocations=44 (full 0):
+ Metaspace       used 65771K, committed 66240K, reserved 1114112K
+  class space    used 11231K, committed 11456K, reserved 1048576K
+}
+Event: 144.750 {metaspace After GC invocations=45 (full 0):
+ Metaspace       used 65771K, committed 66240K, reserved 1114112K
+  class space    used 11231K, committed 11456K, reserved 1048576K
+}
+Event: 144.858 {metaspace Before GC invocations=45 (full 0):
+ Metaspace       used 66224K, committed 66688K, reserved 1114112K
+  class space    used 11351K, committed 11584K, reserved 1048576K
+}
+Event: 144.859 {metaspace After GC invocations=46 (full 0):
+ Metaspace       used 66224K, committed 66688K, reserved 1114112K
+  class space    used 11351K, committed 11584K, reserved 1048576K
+}
+Event: 145.106 {metaspace Before GC invocations=46 (full 0):
+ Metaspace       used 67198K, committed 67712K, reserved 1114112K
+  class space    used 11492K, committed 11712K, reserved 1048576K
+}
+Event: 145.131 {metaspace After GC invocations=47 (full 1):
+ Metaspace       used 67198K, committed 67712K, reserved 1114112K
+  class space    used 11492K, committed 11712K, reserved 1048576K
+}
+
+Dll operation events (20 events):
+Event: 2.926 Attempting to load shared library /Network/Library/Java/Extensions/libbrotli.dylib
+Event: 2.926 Loading shared library /Network/Library/Java/Extensions/libbrotli.dylib failed, dlopen(/Network/Library/Java/Extensions/libbrotli.dylib, 0x0001): tried: '/Network/Library/Java/Extensions/libbrotli.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/
+Event: 2.926 Attempting to load shared library /Network/Library/Java/Extensions/libbrotli.jnilib
+Event: 2.926 Loading shared library /Network/Library/Java/Extensions/libbrotli.jnilib failed, dlopen(/Network/Library/Java/Extensions/libbrotli.jnilib, 0x0001): tried: '/Network/Library/Java/Extensions/libbrotli.jnilib' (no such file), '/System/Volumes/Preboot/Cryptex
+Event: 2.926 Attempting to load shared library /System/Library/Java/Extensions/libbrotli.dylib
+Event: 2.926 Loading shared library /System/Library/Java/Extensions/libbrotli.dylib failed, dlopen(/System/Library/Java/Extensions/libbrotli.dylib, 0x0001): tried: '/System/Library/Java/Extensions/libbrotli.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/
+Event: 2.926 Attempting to load shared library /System/Library/Java/Extensions/libbrotli.jnilib
+Event: 2.926 Loading shared library /System/Library/Java/Extensions/libbrotli.jnilib failed, dlopen(/System/Library/Java/Extensions/libbrotli.jnilib, 0x0001): tried: '/System/Library/Java/Extensions/libbrotli.jnilib' (no such file), '/System/Volumes/Preboot/Cryptexes/
+Event: 2.926 Attempting to load shared library /usr/lib/java/libbrotli.dylib
+Event: 2.926 Loading shared library /usr/lib/java/libbrotli.dylib failed, dlopen(/usr/lib/java/libbrotli.dylib, 0x0001): tried: '/usr/lib/java/libbrotli.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/lib/java/libbrotli.dylib' (no such file), '/usr/li
+Event: 2.926 Attempting to load shared library /usr/lib/java/libbrotli.jnilib
+Event: 2.926 Loading shared library /usr/lib/java/libbrotli.jnilib failed, dlopen(/usr/lib/java/libbrotli.jnilib, 0x0001): tried: '/usr/lib/java/libbrotli.jnilib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/lib/java/libbrotli.jnilib' (no such file), '/us
+Event: 2.926 Attempting to load shared library /Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.dylib
+Event: 2.927 Loading shared library /Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.dylib failed, dlopen(/Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.dylib, 0x0001): tried: '/Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.dylib' (no su
+Event: 2.927 Attempting to load shared library /Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.jnilib
+Event: 2.927 Loading shared library /Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.jnilib failed, dlopen(/Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.jnilib, 0x0001): tried: '/Users/asacksadmin/Developer/Master-WO/InvDepot/libbrotli.jnilib' (no
+Event: 2.939 Attempting to load shared library /private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/com_aayushatharva_brotli4j_103029514639750/libbrotli.dylib
+Event: 3.095 Loaded shared library /private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/com_aayushatharva_brotli4j_103029514639750/libbrotli.dylib
+Event: 3.106 Attempting to load shared library /private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/libzstd-jni-1.5.7-64461708797763514726.dylib
+Event: 3.140 Loaded shared library /private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/libzstd-jni-1.5.7-64461708797763514726.dylib
+
+Deoptimization events (20 events):
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT PACKING pc=0x000000010da82a08 sp=0x00000001733fe070
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001733fdd80 mode 0
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT PACKING pc=0x000000010da81828 sp=0x00000001733fe190
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001733fde60 mode 0
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT PACKING pc=0x000000010da7d574 sp=0x00000001733fe310
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001733fe0d0 mode 0
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT PACKING pc=0x000000010da76aa0 sp=0x00000001733fe4e0
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001733fe2b0 mode 0
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT PACKING pc=0x000000010da75e78 sp=0x00000001733fe680
+Event: 145.455 Thread 0x00000074ec69b800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001733fe330 mode 0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT PACKING pc=0x000000010da82a08 sp=0x00000001731f2070
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001731f1d80 mode 0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT PACKING pc=0x000000010da81828 sp=0x00000001731f2190
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001731f1e60 mode 0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT PACKING pc=0x000000010da7d574 sp=0x00000001731f2310
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001731f20d0 mode 0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT PACKING pc=0x000000010da76aa0 sp=0x00000001731f24e0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001731f22b0 mode 0
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT PACKING pc=0x000000010da75e78 sp=0x00000001731f2680
+Event: 145.917 Thread 0x00000074ec75a800 DEOPT UNPACKING pc=0x00000001144150bc sp=0x00000001731f2330 mode 0
+
+Classes loaded (20 events):
+Event: 144.205 Loading class java/io/ClassCache
+Event: 144.205 Loading class java/io/ClassCache done
+Event: 144.206 Loading class java/io/ObjectStreamClass$Caches$1
+Event: 144.206 Loading class java/io/ObjectStreamClass$Caches$1 done
+Event: 144.206 Loading class java/io/ClassCache$1
+Event: 144.206 Loading class java/io/ClassCache$1 done
+Event: 144.206 Loading class java/io/ObjectStreamClass$Caches$2
+Event: 144.206 Loading class java/io/ObjectStreamClass$Caches$2 done
+Event: 144.329 Loading class java/lang/Class$EnclosingMethodInfo
+Event: 144.329 Loading class java/lang/Class$EnclosingMethodInfo done
+Event: 144.329 Loading class sun/reflect/generics/repository/MethodRepository
+Event: 144.329 Loading class sun/reflect/generics/repository/ConstructorRepository
+Event: 144.329 Loading class sun/reflect/generics/repository/ConstructorRepository done
+Event: 144.329 Loading class sun/reflect/generics/repository/MethodRepository done
+Event: 144.329 Loading class sun/reflect/generics/tree/VoidDescriptor
+Event: 144.329 Loading class sun/reflect/generics/tree/VoidDescriptor done
+Event: 144.329 Loading class sun/reflect/generics/tree/MethodTypeSignature
+Event: 144.329 Loading class sun/reflect/generics/tree/MethodTypeSignature done
+Event: 144.582 Loading class sun/reflect/generics/tree/IntSignature
+Event: 144.582 Loading class sun/reflect/generics/tree/IntSignature done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (20 events):
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.modern.directtoweb.components.ERMDHasChangesMarker, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.components.buttons.ERDFilterDisplayGroupButton, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedSelectorInvocationAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.components.ERDActionBar, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.extensions.components.ERXSingleButton, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedKeyValueAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedExtraQualifierAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedConditionalAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedRelationshipFlagAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedNavigationStateAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedLocalizedAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedNonNullConditionalAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedObjectCreationAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedRuleAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.ERDUnitResolverAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.directtoweb.assignments.delayed.ERDDelayedSwitchAssignment, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.extensions.jdbc.ERXSQLHelper$FrontBaseSQLHelper$1, count=1
+Event: 145.044 Thread 0x00000074e90bd400 redefined class name=er.extensions.jdbc.ERXSQLHelper$FrontBaseSQLHelper$2, count=1
+
+Internal exceptions (20 events):
+Event: 144.983 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007004001a28}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007004001a28) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.985 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007004096900}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007004096900) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.986 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x00000070040e6798}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x00000070040e6798) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.987 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x000000700415ed80}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x000000700415ed80) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.989 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003e11988}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003e11988) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.991 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003e9d600}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003e9d600) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.992 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003f36790}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003f36790) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.993 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003fbe2a8}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003fbe2a8) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.995 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003c3ed10}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003c3ed10) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.996 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003cb0718}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003cb0718) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.997 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003d21318}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003d21318) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 144.998 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003d894c0}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003d894c0) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.000 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003dfe900}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003dfe900) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.001 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003a72a98}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003a72a98) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.002 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003ae21b0}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003ae21b0) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.003 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003b3b200}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003b3b200) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.004 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003bb6368}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003bb6368) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.020 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x0000007003813e08}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x0000007003813e08) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 145.021 Thread 0x00000074e7ddca00 Exception <a 'java/lang/ClassCastException'{0x000000700386a320}: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')> (0x000000700386a320) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 436]
+Event: 146.704 Thread 0x00000074e7ddca00 Exception <a 'java/lang/NoClassDefFoundError'{0x0000007010703d10}: com/eltek/Application (wrong name: com/eltek/components/AttachmentDisplay)> (0x0000007010703d10) 
+thrown [src/hotspot/share/classfile/classFileParser.cpp, line 5571]
+
+VM Operations (20 events):
+Event: 60.234 Executing non-safepoint VM operation: HandshakeAllThreads (HandshakeForDeflation)
+Event: 60.234 Executing non-safepoint VM operation: HandshakeAllThreads (HandshakeForDeflation) done
+Event: 60.234 Executing non-safepoint VM operation: RendezvousGCThreads
+Event: 60.234 Executing non-safepoint VM operation: RendezvousGCThreads done
+Event: 144.216 Executing non-safepoint VM operation: HandshakeAllThreads (Deoptimize)
+Event: 144.216 Executing non-safepoint VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 144.302 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.305 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 144.420 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.421 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 144.526 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.527 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 144.635 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.637 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 144.749 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.750 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 144.858 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 144.859 Executing safepoint VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 145.039 Executing safepoint VM operation: RedefineClasses (Heap Inspection Initiated GC)
+Event: 145.131 Executing safepoint VM operation: RedefineClasses (Heap Inspection Initiated GC) done
+
+Memory protections (20 events):
+Event: 144.571 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 3
+Event: 144.571 Protecting memory [0x0000000174ee4000,0x0000000174ef0000] with protection modes 3
+Event: 144.676 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 0
+Event: 144.676 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 3
+Event: 144.886 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 0
+Event: 144.886 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 3
+Event: 144.989 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 0
+Event: 144.989 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 3
+Event: 145.131 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 0
+Event: 145.131 Protecting memory [0x0000000174ee4000,0x0000000174ef0000] with protection modes 0
+Event: 145.131 Protecting memory [0x00000001750f0000,0x00000001750fc000] with protection modes 0
+Event: 145.131 Protecting memory [0x00000001752fc000,0x0000000175308000] with protection modes 0
+Event: 145.132 Protecting memory [0x0000000174acc000,0x0000000174ad8000] with protection modes 3
+Event: 145.132 Protecting memory [0x0000000175508000,0x0000000175514000] with protection modes 0
+Event: 145.134 Protecting memory [0x0000000175714000,0x0000000175720000] with protection modes 0
+Event: 145.135 Protecting memory [0x00000001750f0000,0x00000001750fc000] with protection modes 3
+Event: 145.135 Protecting memory [0x0000000175508000,0x0000000175514000] with protection modes 3
+Event: 145.135 Protecting memory [0x0000000175714000,0x0000000175720000] with protection modes 3
+Event: 145.455 Protecting memory [0x00000001752fc000,0x0000000175308000] with protection modes 3
+Event: 145.681 Protecting memory [0x0000000174ee4000,0x0000000174ef0000] with protection modes 3
+
+Nmethod flushes (20 events):
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7fcd88
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7fd348
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7fd608
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7fe348
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7feac8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7ff248
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d7ff4c8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d819088
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d81b7c8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d81ba48
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d81bc88
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d81c3c8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d824a48
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d829f88
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d82a648
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d82cec8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d85b988
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d8683c8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d8689c8
+Event: 145.117 Thread 0x00000074e90bd400 flushing  nmethod 0x000000010d868f08
+
+Events (20 events):
+Event: 144.571 Thread 0x00000074ecf1d000 Thread exited: 0x00000074ecf1d000
+Event: 144.571 Thread 0x00000074ecf1d800 Thread exited: 0x00000074ecf1d800
+Event: 144.676 Thread 0x00000074e924f800 Thread added: 0x00000074ecf1d800
+Event: 144.676 Thread 0x00000074ecf1d800 Thread exited: 0x00000074ecf1d800
+Event: 144.886 Thread 0x00000074e924f800 Thread added: 0x00000074ecf1e000
+Event: 144.886 Thread 0x00000074ecf1e000 Thread exited: 0x00000074ecf1e000
+Event: 144.989 Thread 0x00000074e924f800 Thread added: 0x00000074ecf1d800
+Event: 144.989 Thread 0x00000074ecf1d800 Thread exited: 0x00000074ecf1d800
+Event: 145.131 Thread 0x00000074e924f800 Thread added: 0x00000074ecf1e800
+Event: 145.131 Thread 0x00000074e8cd2800 Thread added: 0x00000074e4ee9e00
+Event: 145.131 Thread 0x00000074e924f800 Thread added: 0x00000074ecf1f800
+Event: 145.131 Thread 0x00000074e8cd2800 Thread added: 0x00000074e4feca00
+Event: 145.132 Thread 0x00000074e924f800 Thread added: 0x00000074ece1b800
+Event: 145.133 Thread 0x00000074e924f800 Thread added: 0x00000074eb4be000
+Event: 145.134 Thread 0x00000074ecf1e800 Thread exited: 0x00000074ecf1e800
+Event: 145.135 Thread 0x00000074ecf1f800 Thread exited: 0x00000074ecf1f800
+Event: 145.135 Thread 0x00000074ece1b800 Thread exited: 0x00000074ece1b800
+Event: 145.135 Thread 0x00000074eb4be000 Thread exited: 0x00000074eb4be000
+Event: 145.455 Thread 0x00000074e4feca00 Thread exited: 0x00000074e4feca00
+Event: 145.681 Thread 0x00000074e4ee9e00 Thread exited: 0x00000074e4ee9e00
+
+
+Dynamic libraries:
+0x00000001021cc000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libjli.dylib
+0x000000019f8e4000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x0000000187ac7000 	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x0000000183d39000 	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x000000018e3f6000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x00000001887fc000 	/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x0000000195abf000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x0000000197ede000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x000000018827c000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x00000001941a7000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x0000000195e13000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x0000000195e0e000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+0x0000000195ab4000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x0000000191896000 	/usr/lib/libSystem.B.dylib
+0x000000018748b000 	/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+0x000000018839a000 	/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+0x000000019189a000 	/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+0x0000000184b0b000 	/usr/lib/libicucore.A.dylib
+0x000000018ae39000 	/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+0x000000018de1d000 	/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+0x00000001980eb000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x000000018d917000 	/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x000000018bbe8000 	/usr/lib/libxml2.2.dylib
+0x0000000187029000 	/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x0000000180cc5000 	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x00000001823ef000 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x00000001917e3000 	/usr/lib/libz.1.dylib
+0x00000001807fc000 	/usr/lib/libobjc.A.dylib
+0x0000000180b90000 	/usr/lib/libc++.1.dylib
+0x00000001846fb000 	/System/Library/Frameworks/Security.framework/Versions/A/Security
+0x0000000234118000 	/System/Library/PrivateFrameworks/CollectionsInternal.framework/Versions/A/CollectionsInternal
+0x00000001951f0000 	/usr/lib/swift/libswiftCore.dylib
+0x00000001b1828000 	/usr/lib/swift/libswiftCoreFoundation.dylib
+0x000000019d18e000 	/usr/lib/swift/libswiftDispatch.dylib
+0x00000001b1882000 	/usr/lib/swift/libswiftIOKit.dylib
+0x000000019ffc0000 	/usr/lib/swift/libswiftObjectiveC.dylib
+0x00000001b1837000 	/usr/lib/swift/libswiftXPC.dylib
+0x00000002ad574000 	/usr/lib/swift/libswift_Builtin_float.dylib
+0x00000002307fc000 	/System/Library/PrivateFrameworks/BiomeLibrary.framework/Versions/A/BiomeLibrary
+0x00000001893a3000 	/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+0x000000019d47b000 	/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices
+0x000000019f236000 	/System/Library/PrivateFrameworks/BackBoardServices.framework/Versions/A/BackBoardServices
+0x000000022fb98000 	/System/Library/PrivateFrameworks/BackBoardHIDEventFoundation.framework/Versions/A/BackBoardHIDEventFoundation
+0x000000018bccf000 	/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x000000018ae70000 	/usr/lib/libDiagnosticMessagesClient.dylib
+0x000000018385b000 	/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+0x0000000190b40000 	/usr/lib/libbsm.0.dylib
+0x0000000193af4000 	/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x0000000191b37000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+0x00000001902ce000 	/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+0x000000028703b000 	/System/Library/PrivateFrameworks/ProDisplayLibrary.framework/Versions/A/ProDisplayLibrary
+0x00000001a3294000 	/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+0x0000000189478000 	/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+0x0000000182058000 	/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x000000018d93a000 	/System/Library/Frameworks/Metal.framework/Versions/A/Metal
+0x000000018d930000 	/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+0x000000018dbeb000 	/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x0000000187465000 	/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x00000001873c1000 	/usr/lib/libMobileGestalt.dylib
+0x0000000195cc3000 	/usr/lib/libSMC.dylib
+0x0000000193aae000 	/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+0x000000018b3c9000 	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x0000000185162000 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x0000000191b3f000 	/usr/lib/libcompression.dylib
+0x0000000193ab0000 	/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x000000018af7a000 	/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x000000022fbe9000 	/System/Library/PrivateFrameworks/BackBoardHIDTouchEventProcessor.framework/Versions/A/BackBoardHIDTouchEventProcessor
+0x000000024a8d8000 	/System/Library/PrivateFrameworks/Gestures.framework/Versions/A/Gestures
+0x00000001c9676000 	/usr/lib/swift/libswiftAccelerate.dylib
+0x00000001b1809000 	/usr/lib/swift/libswiftCoreAudio.dylib
+0x00000001bf077000 	/usr/lib/swift/libswiftMetal.dylib
+0x00000001cf407000 	/usr/lib/swift/libswiftOSLog.dylib
+0x00000001c4e80000 	/usr/lib/swift/libswiftQuartzCore.dylib
+0x00000001c9668000 	/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib
+0x000000019ffc4000 	/usr/lib/swift/libswiftos.dylib
+0x00000001b4f9c000 	/usr/lib/swift/libswiftsimd.dylib
+0x00000001c07fc000 	/System/Library/PrivateFrameworks/BiomeStreams.framework/Versions/A/BiomeStreams
+0x00000001c6c0f000 	/System/Library/PrivateFrameworks/BiomeStorage.framework/Versions/A/BiomeStorage
+0x00000001bc793000 	/System/Library/PrivateFrameworks/BiomeFoundation.framework/Versions/A/BiomeFoundation
+0x000000025e6de000 	/System/Library/PrivateFrameworks/IntelligencePlatformLibrary.framework/Versions/A/IntelligencePlatformLibrary
+0x0000000189109000 	/usr/lib/libsqlite3.dylib
+0x000000028559c000 	/System/Library/PrivateFrameworks/PoirotSchematizer.framework/Versions/A/PoirotSchematizer
+0x000000022fcf3000 	/System/Library/PrivateFrameworks/BiomeSync.framework/Versions/A/BiomeSync
+0x00000001c3a99000 	/System/Library/PrivateFrameworks/OSAnalytics.framework/Versions/A/OSAnalytics
+0x000000022fcdf000 	/System/Library/PrivateFrameworks/BiomeDSL.framework/Versions/A/BiomeDSL
+0x00000001c6bbe000 	/System/Library/PrivateFrameworks/BiomePubSub.framework/Versions/A/BiomePubSub
+0x00000001b1702000 	/System/Library/PrivateFrameworks/LoggingSupport.framework/Versions/A/LoggingSupport
+0x00000001a00c9000 	/System/Library/PrivateFrameworks/ProactiveSupport.framework/Versions/A/ProactiveSupport
+0x0000000201109000 	/System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags
+0x00000001d8259000 	/System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework/Versions/A/InternalSwiftProtobuf
+0x0000000285659000 	/System/Library/PrivateFrameworks/PoirotUDFs.framework/Versions/A/PoirotUDFs
+0x00000002ad6a4000 	/usr/lib/swift/libswift_StringProcessing.dylib
+0x0000000191891000 	/usr/lib/system/libcache.dylib
+0x000000019184e000 	/usr/lib/system/libcommonCrypto.dylib
+0x0000000191877000 	/usr/lib/system/libcompiler_rt.dylib
+0x000000019186c000 	/usr/lib/system/libcopyfile.dylib
+0x00000001809b8000 	/usr/lib/system/libcorecrypto.dylib
+0x0000000180ac3000 	/usr/lib/system/libdispatch.dylib
+0x0000000180857000 	/usr/lib/system/libdyld.dylib
+0x0000000191887000 	/usr/lib/system/libkeymgr.dylib
+0x0000000191831000 	/usr/lib/system/libmacho.dylib
+0x0000000190b18000 	/usr/lib/system/libquarantine.dylib
+0x0000000191884000 	/usr/lib/system/libremovefile.dylib
+0x000000018744d000 	/usr/lib/system/libsystem_asl.dylib
+0x000000018093e000 	/usr/lib/system/libsystem_blocks.dylib
+0x0000000180b0d000 	/usr/lib/system/libsystem_c.dylib
+0x000000019187b000 	/usr/lib/system/libsystem_collections.dylib
+0x000000018ef2f000 	/usr/lib/system/libsystem_configuration.dylib
+0x000000018d8dc000 	/usr/lib/system/libsystem_containermanager.dylib
+0x000000019122a000 	/usr/lib/system/libsystem_coreservices.dylib
+0x0000000184dee000 	/usr/lib/system/libsystem_darwin.dylib
+0x00000002adb01000 	/usr/lib/system/libsystem_darwindirectory.dylib
+0x0000000191888000 	/usr/lib/system/libsystem_dnssd.dylib
+0x00000002adb05000 	/usr/lib/system/libsystem_eligibility.dylib
+0x0000000180b0a000 	/usr/lib/system/libsystem_featureflags.dylib
+0x0000000180c96000 	/usr/lib/system/libsystem_info.dylib
+0x00000001917f2000 	/usr/lib/system/libsystem_m.dylib
+0x0000000180a6d000 	/usr/lib/system/libsystem_malloc.dylib
+0x00000001873a5000 	/usr/lib/system/libsystem_networkextension.dylib
+0x0000000185248000 	/usr/lib/system/libsystem_notify.dylib
+0x000000018ef34000 	/usr/lib/system/libsystem_sandbox.dylib
+0x00000002adb10000 	/usr/lib/system/libsystem_sanitizers.dylib
+0x0000000191881000 	/usr/lib/system/libsystem_secinit.dylib
+0x0000000180c40000 	/usr/lib/system/libsystem_kernel.dylib
+0x0000000180c8c000 	/usr/lib/system/libsystem_platform.dylib
+0x0000000180c7f000 	/usr/lib/system/libsystem_pthread.dylib
+0x0000000189544000 	/usr/lib/system/libsystem_symptoms.dylib
+0x0000000180998000 	/usr/lib/system/libsystem_trace.dylib
+0x00000002adb1a000 	/usr/lib/system/libsystem_trial.dylib
+0x000000019185b000 	/usr/lib/system/libunwind.dylib
+0x0000000180942000 	/usr/lib/system/libxpc.dylib
+0x0000000180c26000 	/usr/lib/libc++abi.dylib
+0x00000001883f8000 	/usr/lib/objc/libobjcMsgSend.dylib
+0x00000002ad112000 	/usr/lib/libRosetta.dylib
+0x00000002ad964000 	/usr/lib/swift/libswiftSynchronization.dylib
+0x000000026efcd000 	/System/Library/PrivateFrameworks/NSPredicateSecurityPolicy.framework/Versions/A/NSPredicateSecurityPolicy
+0x000000018bba9000 	/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+0x0000000191898000 	/usr/lib/libfakelink.dylib
+0x00000001918eb000 	/usr/lib/libarchive.2.dylib
+0x000000018ef41000 	/usr/lib/liblangid.dylib
+0x0000000197a1c000 	/System/Library/Frameworks/Combine.framework/Versions/A/Combine
+0x0000000287d09000 	/System/Library/PrivateFrameworks/ReflectionInternal.framework/Versions/A/ReflectionInternal
+0x00000002892e5000 	/System/Library/PrivateFrameworks/RuntimeInternal.framework/Versions/A/RuntimeInternal
+0x00000001adf7f000 	/usr/lib/swift/libswiftDarwin.dylib
+0x00000002ad7bb000 	/usr/lib/swift/libswiftObservation.dylib
+0x00000002ad978000 	/usr/lib/swift/libswiftSystem.dylib
+0x00000002ad575000 	/usr/lib/swift/libswift_Concurrency.dylib
+0x00000002ad602000 	/usr/lib/swift/libswift_DarwinFoundation1.dylib
+0x00000001850e9000 	/System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+0x0000000191865000 	/usr/lib/liboah.dylib
+0x000000019f412000 	/System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+0x00000001adabf000 	/System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+0x000000018bb78000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+0x0000000184df8000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x000000018aef9000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x0000000191231000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x00000001919e3000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x00000001894d1000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x0000000181156000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x0000000192ee4000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x000000018bb84000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+0x0000000191a74000 	/usr/lib/libapple_nghttp2.dylib
+0x000000018954c000 	/System/Library/Frameworks/Network.framework/Versions/A/Network
+0x00000001873c0000 	/usr/lib/libenergytrace.dylib
+0x0000000191835000 	/usr/lib/system/libkxld.dylib
+0x000000022c91e000 	/System/Library/PrivateFrameworks/AppleKeyStore.framework/Versions/A/AppleKeyStore
+0x00000002ac0e3000 	/usr/lib/libCoreEntitlements.dylib
+0x00000002ad2f3000 	/usr/lib/libTLE.dylib
+0x0000000264e3e000 	/System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity
+0x000000019c685000 	/System/Library/PrivateFrameworks/SymptomDiagnosticReporter.framework/Versions/A/SymptomDiagnosticReporter
+0x0000000193125000 	/System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+0x000000019d989000 	/System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime
+0x0000000191212000 	/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x0000000190b28000 	/usr/lib/libcoretls.dylib
+0x0000000192f59000 	/usr/lib/libcoretls_cfhelpers.dylib
+0x0000000191b39000 	/usr/lib/libpam.2.dylib
+0x0000000192fcc000 	/usr/lib/libxar.1.dylib
+0x0000000192f5b000 	/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+0x000000029945a000 	/System/Library/PrivateFrameworks/SwiftASN1Internal.framework/Versions/A/SwiftASN1Internal
+0x0000000192fdb000 	/usr/lib/libutil.dylib
+0x00000002ad26e000 	/usr/lib/libswiftPrespecialized.dylib
+0x000000018ef3d000 	/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x00000002345fe000 	/System/Library/PrivateFrameworks/ConnectedMode.framework/Versions/A/ConnectedMode
+0x0000000224633000 	/System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData
+0x0000000186f53000 	/usr/lib/libboringssl.dylib
+0x00000001883b1000 	/usr/lib/libdns_services.dylib
+0x00000001b0241000 	/usr/lib/libquic.dylib
+0x0000000195182000 	/usr/lib/libusrtcp.dylib
+0x000000022f1c6000 	/System/Library/PrivateFrameworks/AtomicsInternal.framework/Versions/A/AtomicsInternal
+0x00000002ad795000 	/usr/lib/swift/libswiftDistributed.dylib
+0x0000000188cca000 	/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x0000000192f3a000 	/usr/lib/liblzma.5.dylib
+0x00000002ad605000 	/usr/lib/swift/libswift_DarwinFoundation2.dylib
+0x00000002ad606000 	/usr/lib/swift/libswift_DarwinFoundation3.dylib
+0x00000002ad609000 	/usr/lib/swift/libswift_RegexParser.dylib
+0x000000019336b000 	/usr/lib/libheimdal-asn1.dylib
+0x0000000191a50000 	/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+0x000000023fe9e000 	/System/Library/PrivateFrameworks/DeviceRecovery.framework/Versions/A/DeviceRecovery
+0x000000019d821000 	/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+0x00000001cfdb1000 	/System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+0x000000019d800000 	/System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+0x00000002ab959000 	/usr/lib/libAppleArchive.dylib
+0x000000019121d000 	/usr/lib/libbz2.1.0.dylib
+0x00000001b177c000 	/System/Library/PrivateFrameworks/MallocStackLogging.framework/Versions/A/MallocStackLogging
+0x0000000190b1b000 	/usr/lib/libCheckFix.dylib
+0x000000018ef43000 	/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+0x000000018ae72000 	/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+0x0000000190b51000 	/usr/lib/libmecab.dylib
+0x00000001820ea000 	/usr/lib/libCRFSuite.dylib
+0x0000000190bb2000 	/usr/lib/libgermantok.dylib
+0x0000000191a48000 	/usr/lib/libThaiTokenizer.dylib
+0x000000018af84000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x0000000197ec1000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x0000000193011000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x0000000181605000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x000000020ea12000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x000000024bca8000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libllvm-flatbuffers.dylib
+0x00000002467e1000 	/System/Library/PrivateFrameworks/FramePacing.framework/Versions/A/FramePacing
+0x000000020ea05000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+0x000000024bca2000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libGPUCompilerUtils.dylib
+0x000000020ea62000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x000000020ea25000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x000000020ebf1000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x000000020ea2e000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x000000020ea22000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x000000020ea0c000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x00000001907fc000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x0000000191c22000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x0000000190bb5000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+0x0000000191a8d000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+0x0000000191c1d000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+0x000000018f065000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+0x0000000181eeb000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+0x0000000265559000 	/System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL
+0x00000001918d0000 	/usr/lib/libiconv.2.dylib
+0x0000000191830000 	/usr/lib/libcharset.1.dylib
+0x000000018bb13000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x000000019359d000 	/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+0x000000018bba6000 	/usr/lib/libapp_launch_measurement.dylib
+0x0000000259883000 	/System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary
+0x0000000185128000 	/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+0x000000022d45f000 	/System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity
+0x00000001b17a4000 	/usr/lib/libmis.dylib
+0x00000001c52da000 	/System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices
+0x000000020a700000 	/System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper
+0x0000000192fdf000 	/usr/lib/libxslt.1.dylib
+0x0000000181dd9000 	/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+0x000000018f05f000 	/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+0x00000001903a3000 	/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+0x000000019c6c3000 	/System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+0x000000019f5b3000 	/usr/lib/libcurl.4.dylib
+0x000000019c76d000 	/System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+0x000000019586c000 	/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x0000000183973000 	/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+0x0000000195a46000 	/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+0x00000001a261a000 	/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+0x0000000195ab1000 	/usr/lib/libAudioStatistics.dylib
+0x000000018dbc0000 	/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+0x0000000183f5d000 	/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x00000001b7cec000 	/usr/lib/swift/libswiftCoreMIDI.dylib
+0x0000000195e1c000 	/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+0x00000001b0338000 	/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+0x0000000193350000 	/usr/lib/libexpat.1.dylib
+0x0000000195e27000 	/usr/lib/libperfcheck.dylib
+0x000000022f26f000 	/System/Library/PrivateFrameworks/AudioAnalytics.framework/Versions/A/AudioAnalytics
+0x00000001d8189000 	/System/Library/Frameworks/OSLog.framework/Versions/A/OSLog
+0x000000018bdac000 	/System/Library/PrivateFrameworks/UserManagement.framework/Versions/A/UserManagement
+0x000000021ce5a000 	/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation
+0x0000000190382000 	/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+0x000000018ef3b000 	/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+0x000000027037e000 	/System/Library/PrivateFrameworks/OSEligibility.framework/Versions/A/OSEligibility
+0x000000021ecb9000 	/System/Library/Frameworks/LightweightCodeRequirements.framework/Versions/A/LightweightCodeRequirements
+0x000000019325d000 	/System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit
+0x0000000190398000 	/System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices
+0x0000000193961000 	/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+0x000000019407e000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x00000001940a9000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x000000019418f000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x00000001939a7000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x000000019308b000 	/usr/lib/libate.dylib
+0x0000000194137000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x000000019412f000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x00000002ad7e0000 	/usr/lib/swift/libswiftRegexBuilder.dylib
+0x0000000186a7c000 	/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+0x000000018e8be000 	/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x00000001a020b000 	/System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing
+0x0000000283ec2000 	/System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing
+0x00000001bff62000 	/System/Library/PrivateFrameworks/TimeSync.framework/Versions/A/TimeSync
+0x000000022d474000 	/System/Library/PrivateFrameworks/AppleMSG.framework/Versions/A/AppleMSG
+0x000000028c77a000 	/System/Library/PrivateFrameworks/SILManager.framework/Versions/A/SILManager
+0x000000019354d000 	/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+0x0000000195ea6000 	/System/Library/PrivateFrameworks/MobileAsset.framework/Versions/A/MobileAsset
+0x00000002467dd000 	/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+0x0000000193564000 	/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+0x000000018b83a000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x00000001b8d9e000 	/System/Library/PrivateFrameworks/SoftwareUpdateCoreSupport.framework/Versions/A/SoftwareUpdateCoreSupport
+0x00000001c0f18000 	/System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework/Versions/A/SoftwareUpdateCoreConnect
+0x000000019ff54000 	/System/Library/PrivateFrameworks/StreamingZip.framework/Versions/A/StreamingZip
+0x000000019f505000 	/System/Library/PrivateFrameworks/RemoteServiceDiscovery.framework/Versions/A/RemoteServiceDiscovery
+0x00000001b88f3000 	/System/Library/PrivateFrameworks/MSUDataAccessor.framework/Versions/A/MSUDataAccessor
+0x00000001b35da000 	/usr/lib/libbootpolicy.dylib
+0x00000001c9876000 	/usr/lib/libpartition2_dynamic.dylib
+0x000000019f51b000 	/System/Library/PrivateFrameworks/RemoteXPC.framework/Versions/A/RemoteXPC
+0x00000001bfeaf000 	/usr/lib/libFDR.dylib
+0x00000001c67e0000 	/usr/lib/libamsupport.dylib
+0x00000002ad10b000 	/usr/lib/libReverseProxyDevice.dylib
+0x000000022c0f6000 	/System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework/Versions/A/AppleDeviceQuerySupport
+0x00000002ac5f2000 	/usr/lib/libhvf.dylib
+0x000000028134e000 	/System/Library/PrivateFrameworks/ParsingInternal.framework/Versions/A/ParsingInternal
+0x00000002466ce000 	/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+0x000000018ee7d000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+0x0000000191183000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+0x0000000190bc9000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+0x0000000190f81000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+0x0000000190de6000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+0x0000000190fb0000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+0x000000021fbe0000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+0x000000021fbce000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework/Versions/A/MPSBenchmarkLoop
+0x000000021fbf3000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSHost.framework/Versions/A/MPSHost
+0x0000000181456000 	/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+0x000000026819e000 	/System/Library/PrivateFrameworks/MTL3On4.framework/Versions/A/MTL3On4
+0x00000001b64dc000 	/System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework/Versions/A/IOAccelMemoryInfo
+0x00000001c51c8000 	/System/Library/PrivateFrameworks/kperf.framework/Versions/A/kperf
+0x00000001b1806000 	/System/Library/PrivateFrameworks/GPURawCounter.framework/Versions/A/GPURawCounter
+0x00000001c2239000 	/System/Library/PrivateFrameworks/IOKitten.framework/Versions/A/IOKitten
+0x000000029cd03000 	/System/Library/PrivateFrameworks/Tightbeam.framework/Versions/A/Tightbeam
+0x00000001bf07f000 	/usr/lib/swift/libswiftCompression.dylib
+0x00000001c9d2b000 	/System/Library/PrivateFrameworks/AFKUser.framework/Versions/A/AFKUser
+0x000000019346a000 	/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+0x0000000195819000 	/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+0x0000000194195000 	/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+0x00000001935a9000 	/usr/lib/libspindump.dylib
+0x000000019c692000 	/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+0x000000019c56f000 	/System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+0x0000000190939000 	/System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+0x00000001a8345000 	/System/Library/PrivateFrameworks/HID.framework/Versions/A/HID
+0x000000023ec84000 	/System/Library/PrivateFrameworks/CoreUtilsExtras.framework/Versions/A/CoreUtilsExtras
+0x000000025f117000 	/System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
+0x00000001933c9000 	/System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x00000001977b8000 	/System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+0x00000001b1881000 	/usr/lib/swift/libswiftCoreImage.dylib
+0x000000018e3a2000 	/System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+0x000000018bb09000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x0000000190a8f000 	/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x0000000195fe8000 	/System/Library/PrivateFrameworks/CorePhoneNumbers.framework/Versions/A/CorePhoneNumbers
+0x0000000193375000 	/System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+0x0000000258294000 	/System/Library/PrivateFrameworks/IconRendering.framework/Versions/A/IconRendering
+0x000000018b88b000 	/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x000000028c016000 	/System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/SFSymbols
+0x000000021cba6000 	/System/Library/Frameworks/DeveloperToolsSupport.framework/Versions/A/DeveloperToolsSupport
+0x00000001a7ceb000 	/System/Library/PrivateFrameworks/RenderBox.framework/Versions/A/RenderBox
+0x000000018e3b8000 	/System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+0x0000000194213000 	/System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+0x00000001942b0000 	/System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+0x00000002a508d000 	/System/Library/PrivateFrameworks/WallpaperServices.framework/Versions/A/WallpaperServices
+0x0000000194162000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+0x000000019311c000 	/usr/lib/libIOReport.dylib
+0x000000019d3c7000 	/System/Library/PrivateFrameworks/FrontBoardServices.framework/Versions/A/FrontBoardServices
+0x000000019d553000 	/System/Library/PrivateFrameworks/GraphicsServices.framework/Versions/A/GraphicsServices
+0x000000019ff32000 	/System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+0x00000002ac246000 	/usr/lib/libcrypto.46.dylib
+0x00000002ad1fd000 	/usr/lib/libssl.48.dylib
+0x000000019f2a9000 	/System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+0x0000000195e34000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x000000019f2e4000 	/System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+0x0000000195afb000 	/usr/lib/libsasl2.2.dylib
+0x0000000195adf000 	/usr/lib/libresolv.9.dylib
+0x00000001935b0000 	/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x0000000195e45000 	/System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x000000019ff31000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+0x0000000195e95000 	/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x0000000195e01000 	/System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+0x000000018bd74000 	/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport
+0x000000019f8e5000 	/System/Library/PrivateFrameworks/InternationalTextSearch.framework/Versions/A/InternationalTextSearch
+0x000000028561c000 	/System/Library/PrivateFrameworks/PoirotSQLite.framework/Versions/A/PoirotSQLite
+0x0000000232017000 	/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/CascadeSets
+0x000000019f639000 	/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport
+0x000000019412a000 	/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+0x000000019410b000 	/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+0x0000000194132000 	/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+0x00000002a2e81000 	/System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport
+0x0000000193306000 	/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x00000001d8362000 	/System/Library/PrivateFrameworks/HIDDisplay.framework/Versions/A/HIDDisplay
+0x00000001b5204000 	/System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+0x00000001945b7000 	/System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x000000021cb6c000 	/System/Library/Frameworks/DataDetection.framework/Versions/A/DataDetection
+0x000000019812b000 	/System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+0x000000019029b000 	/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+0x00000001b649f000 	/usr/lib/libncurses.5.4.dylib
+0x000000021bdbc000 	/System/Library/Frameworks/AVFAudio.framework/Versions/A/AVFAudio
+0x000000025f1fc000 	/System/Library/PrivateFrameworks/IsolatedCoreAudioClient.framework/Versions/A/IsolatedCoreAudioClient
+0x00000002364fe000 	/System/Library/PrivateFrameworks/CoreAudioOrchestration.framework/Versions/A/CoreAudioOrchestration
+0x00000001a9c0e000 	/usr/lib/libAccessibility.dylib
+0x0000000195da3000 	/usr/lib/libcups.2.dylib
+0x00000001a9ab1000 	/System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities
+0x00000001def15000 	/usr/lib/libedit.3.dylib
+0x00000001baa54000 	/System/Library/PrivateFrameworks/AttributeGraph.framework/Versions/A/AttributeGraph
+0x00000002ac097000 	/usr/lib/libAXSafeCategoryBundle.dylib
+0x0000000225925000 	/System/Library/Frameworks/TabularData.framework/Versions/A/TabularData
+0x000000022e7b9000 	/System/Library/PrivateFrameworks/ArgumentParserInternal.framework/Versions/A/ArgumentParserInternal
+0x00000001a27cb000 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x00000001852c3000 	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x0000000186906000 	/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+0x000000023426a000 	/System/Library/PrivateFrameworks/CollectionViewCore.framework/Versions/A/CollectionViewCore
+0x0000000194601000 	/System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+0x000000018e3b4000 	/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+0x000000029f4e8000 	/System/Library/PrivateFrameworks/UIIntelligenceSupport.framework/Versions/A/UIIntelligenceSupport
+0x000000023197c000 	/System/Library/PrivateFrameworks/CampoServices.framework/Versions/A/CampoServices
+0x000000024686f000 	/System/Library/PrivateFrameworks/FrontBoard.framework/Versions/A/FrontBoard
+0x00000002247de000 	/System/Library/Frameworks/SwiftUICore.framework/Versions/A/SwiftUICore
+0x00000002a75e0000 	/System/Library/PrivateFrameworks/WritingTools.framework/Versions/A/WritingTools
+0x00000002a61d5000 	/System/Library/PrivateFrameworks/WindowManagement.framework/Versions/A/WindowManagement
+0x00000002ab4ab000 	/System/Library/SubFrameworks/FocusEngine.framework/Versions/A/FocusEngine
+0x000000023f7d1000 	/System/Library/PrivateFrameworks/DesignLibrary.framework/Versions/A/DesignLibrary
+0x000000022aea6000 	/System/Library/PrivateFrameworks/AnimationKit.framework/Versions/A/AnimationKit
+0x00000002ab861000 	/System/Library/SubFrameworks/UIUtilities.framework/Versions/A/UIUtilities
+0x00000002a01b5000 	/System/Library/PrivateFrameworks/UpdateCycle.framework/Versions/A/UpdateCycle
+0x000000018e0bd000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x0000000197b39000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x000000018bb01000 	/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x0000000197e67000 	/System/Library/Frameworks/Accessibility.framework/Versions/A/Accessibility
+0x000000021c765000 	/System/Library/Frameworks/CoreTransferable.framework/Versions/A/CoreTransferable
+0x0000000225913000 	/System/Library/Frameworks/Symbols.framework/Versions/A/Symbols
+0x000000028952a000 	/System/Library/PrivateFrameworks/SceneHosting.framework/Versions/A/SceneHosting
+0x00000002ad8e8000 	/usr/lib/swift/libswiftSpatial.dylib
+0x00000001adf7e000 	/usr/lib/swift/libswiftCoreGraphics.dylib
+0x0000000198175000 	/usr/lib/swift/libswiftFoundation.dylib
+0x000000020a173000 	/usr/lib/swift/libswiftSwiftOnoneSupport.dylib
+0x00000002ad977000 	/usr/lib/swift/libswiftsys_time.dylib
+0x00000001cffcf000 	/System/Library/PrivateFrameworks/CoreMaterial.framework/Versions/A/CoreMaterial
+0x00000002ad1a0000 	/usr/lib/libSpatial.dylib
+0x00000001980ec000 	/System/Library/PrivateFrameworks/PrototypeTools.framework/Versions/A/PrototypeTools
+0x000000018084c000 	/usr/lib/libsharedcache.dylib
+0x00000001903f8000 	/usr/lib/objc/libobjcMsgSend1.dylib
+0x00000001983f8000 	/usr/lib/objc/libobjcMsgSend2.dylib
+0x00000001a03f8000 	/usr/lib/objc/libobjcMsgSend3.dylib
+0x00000001a83f8000 	/usr/lib/objc/libobjcMsgSend4.dylib
+0x00000001b03f8000 	/usr/lib/objc/libobjcMsgSend5.dylib
+0x00000001b83f8000 	/usr/lib/objc/libobjcMsgSend6.dylib
+0x00000001c03f8000 	/usr/lib/objc/libobjcMsgSend7.dylib
+0x00000001c83f8000 	/usr/lib/objc/libobjcMsgSend8.dylib
+0x00000001d03f8000 	/usr/lib/objc/libobjcMsgSend9.dylib
+0x00000001d83f8000 	/usr/lib/objc/libobjcMsgSend10.dylib
+0x00000001e03f8000 	/usr/lib/objc/libobjcMsgSend11.dylib
+0x00000002083f8000 	/usr/lib/objc/libobjcMsgSend12.dylib
+0x00000002103f8000 	/usr/lib/objc/libobjcMsgSend13.dylib
+0x00000002183f8000 	/usr/lib/objc/libobjcMsgSend14.dylib
+0x00000002203f8000 	/usr/lib/objc/libobjcMsgSend15.dylib
+0x00000002283f8000 	/usr/lib/objc/libobjcMsgSend16.dylib
+0x00000002303f8000 	/usr/lib/objc/libobjcMsgSend17.dylib
+0x00000002383f8000 	/usr/lib/objc/libobjcMsgSend18.dylib
+0x00000002403f8000 	/usr/lib/objc/libobjcMsgSend19.dylib
+0x00000002483f8000 	/usr/lib/objc/libobjcMsgSend20.dylib
+0x00000002503f8000 	/usr/lib/objc/libobjcMsgSend21.dylib
+0x00000002583f8000 	/usr/lib/objc/libobjcMsgSend22.dylib
+0x00000002603f8000 	/usr/lib/objc/libobjcMsgSend23.dylib
+0x00000002683f8000 	/usr/lib/objc/libobjcMsgSend24.dylib
+0x00000002703f8000 	/usr/lib/objc/libobjcMsgSend25.dylib
+0x00000002883f8000 	/usr/lib/objc/libobjcMsgSend26.dylib
+0x00000002903f8000 	/usr/lib/objc/libobjcMsgSend27.dylib
+0x00000002983f8000 	/usr/lib/objc/libobjcMsgSend28.dylib
+0x00000002a03f8000 	/usr/lib/objc/libobjcMsgSend29.dylib
+0x00000002a83f8000 	/usr/lib/objc/libobjcMsgSend30.dylib
+0x00000002b03f8000 	/usr/lib/objc/libobjcMsgSend31.dylib
+0x00000002b83f8000 	/usr/lib/objc/libobjcMsgSend32.dylib
+0x00000002c03f8000 	/usr/lib/objc/libobjcMsgSend33.dylib
+0x00000002c83f8000 	/usr/lib/objc/libobjcMsgSend34.dylib
+0x0000000108028000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/server/libjvm.dylib
+0x0000000102200000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libjimage.dylib
+0x0000000102260000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libjdwp.dylib
+0x000000010222c000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libinstrument.dylib
+0x00000001022dc000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libjava.dylib
+0x000000010234c000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libzip.dylib
+0x00000001026c8000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libnio.dylib
+0x00000001022c4000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libnet.dylib
+0x00000002ab902000 	/usr/lib/i18n/libiconv_std.dylib
+0x00000002ab914000 	/usr/lib/i18n/libUTF8.dylib
+0x00000002ab90a000 	/usr/lib/i18n/libmapper_646.dylib
+0x00000001079a0000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libdt_socket.dylib
+0x00000001079d0000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libverify.dylib
+0x00000001079b4000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libmanagement.dylib
+0x0000000107a6c000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libmanagement_ext.dylib
+0x00000001022ac000 	/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/libsyslookup.dylib
+0x0000000107b54000 	/private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/com_aayushatharva_brotli4j_103029514639750/libbrotli.dylib
+0x0000000107c28000 	/private/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/libzstd-jni-1.5.7-64461708797763514726.dylib
+
+JVMTI agents:
+jdwp path:none, loaded, initialized, options:transport=dt_socket,suspend=y,address=localhost:62005
+/Users/asacksadmin/eclipse/java-2026-03/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/871/0/.cp/lib/javaagent-shaded.jar path:none, loaded, initialized, instrumentlib options:none
+/Library/Java/JavaVirtualMachines/jbr-25.0.4.1-osx-aarch64-b610.67/Contents/Home/lib/hotswap/hotswap-agent.jar path:none, loaded, initialized, instrumentlib options:none
+
+
+VM Arguments:
+jvm_args: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:62005 -XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar -XX:+UseCompactObjectHeaders --enable-native-access=ALL-UNNAMED,com.github.luben.zstd_jni -javaagent:/Users/asacksadmin/eclipse/java-2026-03/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/871/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 --module-path=/Users/asacksadmin/Developer/Master-WO/InvDepot/target/classes:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/ERExtensions/target/classes:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-foundation/1.0.1/wonder-modular-foundation-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eocontrol/1.0.1/wonder-modular-eocontrol-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eoaccess/1.0.1/wonder-modular-eoaccess-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-jdbcadaptor/1.0.1/wonder-modular-jdbcadaptor-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-webobjects/1.0.1/wonder-modular-webobjects-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/asacksadmin/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/ERDirectToWeb/target/classes:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-directtoweb/1.0.1/wonder-modular-directtoweb-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-dtwgeneration/1.0.1/wonder-modular-dtwgeneration-1.0.1.jar:/Users/asacksadmin/.m2/repository/org/wocommunity/wonder-modular-eoproject/1.0.1/wonder-modular-eoproject-1.0.1.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/BusinessLogic/ERAttachment/target/classes:/Users/asacksadmin/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/Users/asacksadmin/.m2/repository/io/github/wocommunity/wonder/ajax/ajax/8.0.3-SNAPSHOT/ajax-8.0.3-SNAPSHOT.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/Core/JavaWOExtensions/target/classes:/Users/asacksadmin/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.2/jackson-core-2.18.2.jar:/Users/asacksadmin/.m2/repository/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar:/Users/asacksadmin/.m2/repository/org/bouncyca-Djdk.module.main=com.eltek.InvDepot 
+java_command: com.eltek.InvDepot/com.eltek.Application -DWOPort=9018 -DWOHost=127.0.0.1 -DWOAdaptorURL=https://127.0.0.1/cgi-bin/WebObjects -DWOSSLEnabled=true
+java_class_path (initial): /Users/asacksadmin/Developer/WonderSource/Frameworks/Core/ERPrototypes/target/classes:/Users/asacksadmin/.m2/repository/io/github/wocommunity/wonder/ajax/Ajax/8.0.3-SNAPSHOT/Ajax-8.0.3-SNAPSHOT.jar:/Users/asacksadmin/Developer/WonderSource/Frameworks/D2W/ERModernDirectToWeb/target/classes:/Users/asacksadmin/Developer/WonderSource/Frameworks/Ajax/ERCoolComponents/target/classes:/Users/asacksadmin/Developer/WonderSource/Frameworks/D2W/ERModernLook/target/classes:/Users/asacksadmin/Developer/WonderSource/Frameworks/D2W/ERModernDefaultSkin/target/classes:/Users/asacksadmin/.m2/repository/io/github/wocommunity/wonder/woadaptors/vertxwoadaptor/8.0.3-SNAPSHOT/vertxwoadaptor-8.0.3-SNAPSHOT.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-web/5.0.6/vertx-web-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-web-common/5.0.6/vertx-web-common-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-auth-common/5.0.6/vertx-auth-common-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-bridge-common/5.0.6/vertx-bridge-common-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-core/5.0.6/vertx-core-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-core-logging/5.0.6/vertx-core-logging-5.0.6.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-common/4.2.9.Final/netty-common-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-buffer/4.2.9.Final/netty-buffer-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-transport/4.2.9.Final/netty-transport-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-handler/4.2.9.Final/netty-handler-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-transport-native-unix-common/4.2.9.Final/netty-transport-native-unix-common-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-base/4.2.9.Final/netty-codec-base-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-handler-proxy/4.2.9.Final/netty-handler-proxy-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-socks/4.2.9.Final/netty-codec-socks-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-http/4.2.9.Final/netty-codec-http-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-compression/4.2.9.Final/netty-codec-compression-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-http2/4.2.9.Final/netty-codec-http2-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-resolver/4.2.9.Final/netty-resolver-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-resolver-dns/4.2.9.Final/netty-resolver-dns-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/netty/netty-codec-dns/4.2.9.Final/netty-codec-dns-4.2.9.Final.jar:/Users/asacksadmin/.m2/repository/io/vertx/vertx-codegen-api/5.0.6/vertx-codegen-api-5.0.6.jar:/Users/asacksadmin/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.20.0/brotli4j-1.20.0.jar:/Users/asacksadmin/.m2/repository/com/aayushatharva/brotli4j/service/1.20.0/service-1.20.0.jar:/Users/asacksadmin/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.20.0/native-osx-aarch64-1.20.0.jar:/Users/asacksadmin/.m2/repository/io/github/wocommunity/wonder/plugins/postgresqlplugin/8.0.3-SNAPSHOT/postgresqlplugin-8.0.3-SNAPSHOT.jar:/Users/asacksadmin/.m2/repository/org/postgresql/postgresql/42.7.13/postgresql-42.7.13.jar:/Users/asacksadmin/.m2/repository/org/checkerframework/checker-qual/3.55.1/checker-qual-3.55.1.jar:/Users/asacksadmin/.m2/repository/org/apache/pdfbox/pdfbox-io/3.0.3/pdfbox-io-3.0.3.jar:/Users/asacksadmin/.m2/repository/commons-logging/commons-logging/1.3.3/commons-logging-1.3.3.jar:/Users/asacksadmin/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     bool AllowEnhancedClassRedefinition           = true                                      {product} {command line}
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    ccstr HotswapAgent                             = fatjar                                    {product} {command line}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MarkStackSizeMax                         = 536870912                                 {product} {ergonomic}
+   size_t MaxHeapSize                              = 4294967296                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2575302656                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5849088                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912768                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912768                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251674624                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 4294967296                             {manageable} {ergonomic}
+     bool UseCompactObjectHeaders                  = true                           {product lp64_product} {command line}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseNUMA                                  = false                                     {product} {ergonomic}
+     bool UseNUMAInterleaving                      = false                                     {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Release file:
+JAVA_VERSION="25.0.4.1"
+MODULES="java.base java.compiler java.datatransfer java.xml java.prefs java.desktop java.instrument java.logging java.management java.security.sasl java.naming java.rmi java.management.rmi java.net.http java.scripting java.security.jgss java.transaction.xa java.sql java.sql.rowset java.xml.crypto java.se java.smartcardio jdk.accessibility jdk.internal.jvmstat jdk.attach jdk.charsets jdk.internal.opt jdk.zipfs jdk.compiler jdk.crypto.cryptoki jdk.crypto.ec jdk.dynalink jdk.hotspot.agent jdk.httpserver jdk.internal.ed jdk.internal.le jdk.internal.md jdk.internal.vm.ci jdk.javadoc jdk.jcmd jdk.jdwp.agent jdk.jdi jdk.jfr jdk.localedata jdk.management jdk.management.agent jdk.management.jfr jdk.naming.dns jdk.naming.rmi jdk.net jdk.sctp jdk.security.auth jdk.security.jgss jdk.unsupported jdk.unsupported.desktop jdk.xml.dom"
+IMPLEMENTOR="JetBrains s.r.o."
+IMPLEMENTOR_VERSION="JBR-25.0.4.1+1-610.67-nomod"
+JAVA_RUNTIME_VERSION="25.0.4.1+1-b610.67"
+LIBC="default"
+OS_ARCH="aarch64"
+OS_NAME="Darwin"
+SOURCE=".:git:160456f492ef+"
+
+Environment Variables:
+PATH=/usr/bin:/bin:/usr/sbin:/sbin
+SHELL=/bin/zsh
+TMPDIR=/var/folders/x1/70qnlddj227c24fhfmcb8j_h0000gp/T/
+
+Active Locale:
+LC_ALL=C
+LC_COLLATE=C
+LC_CTYPE=C
+LC_MESSAGES=C
+LC_MONETARY=C
+LC_NUMERIC=C
+LC_TIME=C
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_ONSTACK|SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGXFSZ: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.dylib, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+Compilation memory statistics disabled.
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 119, weak refs: 429
+
+JNI global refs memory usage: 4627, weak refs: 5953
+
+Process memory usage:
+Resident Set Size: 289392K (1% of 16777216K total physical memory with 3952496K free physical memory)
+
+OOME stack traces (most recent first):
+Classloader memory used:
+Loader jdk.internal.loader.ClassLoaders$AppClassLoader                                 : 35070 K
+Loader bootstrap                                                                       : 31420 K
+Loader jdk.internal.loader.ClassLoaders$PlatformClassLoader                            : 740 K
+
+Classes loaded by more than one classloader:
+Class er.directtoweb.components.ERD2WExtraDisplayPropertyKeysComponent                : loaded 2 times (x 250B)
+Class er.extensions.jdbc.ERXSQLHelper$FrontBaseSQLHelper$2                            : loaded 2 times (x 76B)
+Class er.extensions.localization.ERXLocalizedString                                   : loaded 2 times (x 205B)
+Class er.extensions.jdbc.ERXSQLHelper$OracleSQLHelper                                 : loaded 2 times (x 133B)
+Class er.extensions.foundation.ERXFileNotificationCenter$_ObserverSelectorHolder      : loaded 2 times (x 74B)
+Class er.extensions.foundation.ERXMutableInteger                                      : loaded 2 times (x 79B)
+Class er.extensions.partials.ERXPartialInitializer                                    : loaded 2 times (x 79B)
+Class er.extensions.components.conditionals.ERXOncePerRequestConditional              : loaded 2 times (x 208B)
+Class com.eltekfw.components.AttachmentDisplay                                        : loaded 2 times (x 239B)
+Class com.eltekfw.model.eogen._Client                                                 : loaded 2 times (x 430B)
+Class com.eltek.Session                                                               : loaded 2 times (x 191B)
+Class er.directtoweb.components.ERD2WStatelessComponent                               : loaded 2 times (x 246B)
+Class er.extensions.foundation.ERXArrayUtilities$UniqueOperator                       : loaded 2 times (x 78B)
+Class er.directtoweb.components.ERDCustomQueryComponent                               : loaded 2 times (x 234B)
+Class er.directtoweb.ERD2WModel                                                       : loaded 2 times (x 169B)
+Class er.extensions.eof.ERXGenericRecord                                              : loaded 2 times (x 412B)
+Class er.extensions.eof.ERXEC$Factory                                                 : loaded 2 times (x 72B)
+Class er.extensions.foundation.ERXThreadStorage                                       : loaded 2 times (x 73B)
+Class er.extensions.components.ERXWOComponentContent                                  : loaded 2 times (x 77B)
+Class er.extensions.appserver.ajax.ERXAjaxApplication                                 : loaded 2 times (x 380B)
+Class er.modern.directtoweb.components.buttons.ERMDInspectButton                      : loaded 2 times (x 251B)
+Class er.extensions.components.ERXNonSynchronizingComponent                           : loaded 2 times (x 203B)
+Class er.extensions.foundation.ERXArrayUtilities$IsEmptyOperator                      : loaded 2 times (x 77B)
+Class er.extensions.components.ERXSingleButton                                        : loaded 2 times (x 208B)
+Class er.extensions.qualifiers.ERXAndQualifier                                        : loaded 2 times (x 117B)
+Class er.extensions.eof.ERXDatabaseContextDelegate$ReentranceProtector                : loaded 2 times (x 76B)
+Class er.extensions.foundation.ERXArrayUtilities$StandardDeviationOperator            : loaded 2 times (x 77B)
+Class er.modern.directtoweb.components.ERMDHasChangesMarker                           : loaded 2 times (x 244B)
+Class er.directtoweb.components.misc.ERD2WContextInspector                            : loaded 2 times (x 204B)
+Class er.extensions.localization.ERXNonPluralFormLocalizer                            : loaded 2 times (x 120B)
+Class er.modern.directtoweb.components.ERMDDebuggingHelp                              : loaded 2 times (x 190B)
+Class er.extensions.components.ERXSortOrder                                           : loaded 2 times (x 223B)
+Class er.modern.directtoweb.components.repetitions.ERMDInspectPageRepetition          : loaded 2 times (x 255B)
+Class er.extensions.eof.ERXEditingContextDelegate                                     : loaded 2 times (x 73B)
+Class er.extensions.eof.qualifiers.ERXInQualifier                                     : loaded 2 times (x 120B)
+Class er.extensions.localization.ERXLocalizer$Observer                                : loaded 2 times (x 74B)
+Class er.extensions.appserver.ERXBrowser                                              : loaded 2 times (x 125B)
+Class er.directtoweb.assignments.delayed.ERDDelayedObjectCreationAssignment           : loaded 2 times (x 84B)
+Class com.eltekfw.model.Invoice                                                       : loaded 2 times (x 428B)
+Class er.attachment.model.ERAttachmentData                                            : loaded 2 times (x 415B)
+Class er.directtoweb.components.ERDDebuggingHelp                                      : loaded 2 times (x 187B)
+Class com.webobjects.woextensions.WOExceptionParser                                   : loaded 2 times (x 80B)
+Class com.eltekfw.model.eogen._Preference                                             : loaded 2 times (x 417B)
+Class com.eltekfw.model.eogen._Invoice                                                : loaded 2 times (x 428B)
+Class er.extensions.eof.ERXGeneratesPrimaryKeyInterface                               : loaded 2 times (x 72B)
+Class er.extensions.eof.ERXEnterpriseObjectCache                                      : loaded 2 times (x 104B)
+Class er.extensions.foundation.ERXArrayUtilities$ObjectAtIndexOperator                : loaded 2 times (x 77B)
+Class er.extensions.woextensions.WOToManyRelationship                                 : loaded 2 times (x 238B)
+Class er.extensions.components.ERXStatelessComponent                                  : loaded 2 times (x 203B)
+Class er.extensions.foundation.ERXMutableDictionary                                   : loaded 2 times (x 175B)
+Class er.modern.directtoweb.components.ERMD2WStyleSheetInjector                       : loaded 2 times (x 249B)
+Class er.directtoweb.components.ERD2WPropertyName                                     : loaded 2 times (x 259B)
+Class er.extensions.batching.ERXBatchingDisplayGroup                                  : loaded 2 times (x 213B)
+Class er.extensions.foundation.ERXArrayUtilities$FetchSpecOperator                    : loaded 2 times (x 78B)
+Class com.eltekfw.model.Vendor                                                        : loaded 2 times (x 433B)
+Class com.eltekfw.model.eogen._SavedDoc                                               : loaded 2 times (x 421B)
+Class er.attachment.model._ERFileAttachment                                           : loaded 2 times (x 459B)
+Class er.extensions.eof.ERXDatabaseContextDelegate$AutoBatchFaultingEnterpriseObject  : loaded 2 times (x 72B)
+Class er.extensions.appserver.ERXSession$Observer                                     : loaded 2 times (x 76B)
+Class er.extensions.foundation.ERXSimpleTemplateParser                                : loaded 2 times (x 78B)
+Class er.extensions.migration.ERXMigrationDatabase$Migration                          : loaded 2 times (x 85B)
+Class er.extensions.foundation.ERXFileNotificationCenter                              : loaded 2 times (x 82B)
+Class er.extensions.components.ERXComponentUtilities                                  : loaded 2 times (x 73B)
+Class er.extensions.components.ERXDynamicElement                                      : loaded 2 times (x 103B)
+Class er.extensions.components.ERXStyleSheet                                          : loaded 2 times (x 208B)
+Class er.coolcomponents.CCSubmitLinkButton                                            : loaded 2 times (x 203B)
+Class er.modern.directtoweb.components.ERMD2WBatchNavigationBar                       : loaded 2 times (x 236B)
+Class er.attachment.model.ERDatabaseAttachment                                        : loaded 2 times (x 462B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$PopUpButton          : loaded 2 times (x 137B)
+Class er.extensions.jdbc.ERXSQLHelper$NoSQLHelper                                     : loaded 2 times (x 133B)
+Class er.ajax.AjaxDynamicElement                                                      : loaded 2 times (x 116B)
+Class er.extensions.eof.qualifiers.ERXFullTextQualifierSupport                        : loaded 2 times (x 76B)
+Class com.eltekfw.model.eogen._Security                                               : loaded 2 times (x 432B)
+Class er.extensions.appserver.navigation.ERXNavigationItem                            : loaded 2 times (x 102B)
+Class com.eltekfw.model.eogen._Person                                                 : loaded 2 times (x 423B)
+Class er.directtoweb.assignments.ERDComputingAssignmentInterface                      : loaded 2 times (x 72B)
+Class com.eltek.components.MenuHeader                                                 : loaded 2 times (x 205B)
+Class er.attachment.model._ERAttachment                                               : loaded 2 times (x 453B)
+Class er.directtoweb.ERD2WDirectAction                                                : loaded 2 times (x 153B)
+Class er.extensions.eof.ERXEntityClassDescription$Factory                             : loaded 2 times (x 88B)
+Class er.ajax.Ajax                                                                    : loaded 2 times (x 78B)
+Class er.ajax.AjaxResponse                                                            : loaded 2 times (x 170B)
+Class er.directtoweb.components.repetitions.ERDAttributeRepetition                    : loaded 2 times (x 244B)
+Class er.extensions.foundation.ERXDictionaryUtilities                                 : loaded 2 times (x 73B)
+Class er.extensions.jdbc.ERXSQLHelper$PostgresqlSQLHelper                             : loaded 2 times (x 133B)
+Class er.extensions.eof.ERXEC$1                                                       : loaded 2 times (x 83B)
+Class er.directtoweb.components.ERD2WHead                                             : loaded 2 times (x 246B)
+Class er.extensions.foundation.ERXArrayUtilities$RemoveNullValuesOperator             : loaded 2 times (x 78B)
+Class er.modern.directtoweb.components.repetitions.ERMDSimpleListPageRepetition       : loaded 2 times (x 257B)
+Class er.coolcomponents.CCResourceInjector                                            : loaded 2 times (x 203B)
+Class er.extensions.eof.ERXEC$2                                                       : loaded 2 times (x 85B)
+Class er.directtoweb.ERDirectToWeb                                                    : loaded 2 times (x 80B)
+Class er.directtoweb.components.strings.ERD2WDisplayString                            : loaded 2 times (x 245B)
+Class er.directtoweb.components.ERDEmptyPageWrapper                                   : loaded 2 times (x 203B)
+Class er.directtoweb.assignments.delayed.ERDDelayedSelectorInvocationAssignment$DefaultImplementation: loaded 2 times (x 73B)
+Class er.extensions.migration.ERXModelVersion                                         : loaded 2 times (x 76B)
+Class er.extensions.qualifiers.ERXKeyValueQualifier                                   : loaded 2 times (x 119B)
+Class er.extensions.eof.qualifiers.ERXPrimaryKeyListQualifier                         : loaded 2 times (x 120B)
+Class er.extensions.eof.ERXEC                                                         : loaded 2 times (x 232B)
+Class er.extensions.localization.ERXLocalizer                                         : loaded 2 times (x 120B)
+Class er.ajax.AjaxInPlaceEditor                                                       : loaded 2 times (x 118B)
+Class com.webobjects.woextensions.WOParsedErrorLine                                   : loaded 2 times (x 83B)
+Class er.extensions.eof.qualifiers.ERXToManyQualifier                                 : loaded 2 times (x 121B)
+Class er.prototypes.ValueConversion                                                   : loaded 2 times (x 73B)
+Class er.extensions.jdbc.ERXSQLHelper$MySQLSQLHelper                                  : loaded 2 times (x 133B)
+Class er.directtoweb.delegates.ERDBranchInterface                                     : loaded 2 times (x 72B)
+Class er.extensions.appserver.ERXDirectAction                                         : loaded 2 times (x 136B)
+Class er.extensions.eof.ERXEntityClassDescription                                     : loaded 2 times (x 128B)
+Class er.directtoweb.interfaces.ERDFollowPageInterface                                : loaded 2 times (x 72B)
+Class er.directtoweb.pages.ERD2WListPage                                              : loaded 2 times (x 395B)
+Class er.extensions.qualifiers.ERXOrQualifier                                         : loaded 2 times (x 117B)
+Class er.extensions.foundation.ERXArrayUtilities$ReverseOperator                      : loaded 2 times (x 78B)
+Class er.directtoweb.embed.ERXD2WList                                                 : loaded 2 times (x 173B)
+Class er.extensions.appserver.ERXApplication                                          : loaded 2 times (x 432B)
+Class er.extensions.jdbc.ERXSQLHelper$DerbySQLHelper                                  : loaded 2 times (x 133B)
+Class er.extensions.appserver.ERXDisplayGroup                                         : loaded 2 times (x 198B)
+Class er.directtoweb.ERD2WFactory                                                     : loaded 2 times (x 136B)
+Class er.extensions.foundation.ERXSelectorUtilities                                   : loaded 2 times (x 73B)
+Class er.extensions.eof.ERXKey$ValueCoding                                            : loaded 2 times (x 72B)
+Class er.extensions.formatters.ERXNumberFormatter                                     : loaded 2 times (x 141B)
+Class er.extensions.ERXExtensions                                                     : loaded 2 times (x 81B)
+Class er.directtoweb.interfaces.ERDEditPageInterface                                  : loaded 2 times (x 72B)
+Class er.directtoweb.assignments.delayed.ERDDelayedRuleAssignment                     : loaded 2 times (x 84B)
+Class er.directtoweb.assignments.defaults.ERDDefaultsEmbeddedAssignment               : loaded 2 times (x 99B)
+Class er.extensions.foundation.ERXArrayUtilities$BaseOperator                         : loaded 2 times (x 78B)
+Class er.ajax.AjaxUpdateLink                                                          : loaded 2 times (x 118B)
+Class er.extensions.components._private.ERXWORepetition                               : loaded 2 times (x 90B)
+Class com.webobjects.woextensions.WOExceptionPage                                     : loaded 2 times (x 172B)
+Class er.attachment.model._ERAttachmentData                                           : loaded 2 times (x 415B)
+Class er.extensions.foundation.ERXMutableDictionary$ThreadSafeDictionary              : loaded 2 times (x 175B)
+Class er.directtoweb.interfaces.ERDListPageInterface                                  : loaded 2 times (x 72B)
+Class er.extensions.foundation.ERXArrayUtilities$FlattenOperator                      : loaded 2 times (x 78B)
+Class er.extensions.eof.ERXModelGroup$LocalizedAttributeProcessor                     : loaded 2 times (x 76B)
+Class er.extensions.eof.ERXEC$DefaultFactory                                          : loaded 2 times (x 102B)
+Class er.extensions.foundation.ERXMultiKey                                            : loaded 2 times (x 74B)
+Class er.directtoweb.assignments.ERDLocalizedAssignment                               : loaded 2 times (x 93B)
+Class er.extensions.statistics.ERXStats$LogEntry                                      : loaded 2 times (x 86B)
+Class er.directtoweb.ERD2WContainer                                                   : loaded 2 times (x 74B)
+Class er.extensions.foundation.ERXSystem                                              : loaded 2 times (x 85B)
+Class er.extensions.batching.ERXFlickrBatchNavigation                                 : loaded 2 times (x 232B)
+Class er.modern.directtoweb.components.buttons.ERMDDeleteButton                       : loaded 2 times (x 263B)
+Class er.extensions.components.ERXErrorDictionaryPanel                                : loaded 2 times (x 209B)
+Class er.extensions.eof.ERXObjectStoreCoordinatorPool                                 : loaded 2 times (x 81B)
+Class er.extensions.remoteSynchronizer.ERXRemoteSynchronizer                          : loaded 2 times (x 95B)
+Class er.extensions.components.ERXClickToOpenSupport                                  : loaded 2 times (x 73B)
+Class er.extensions.components.conditionals.ERXNonZeroConditional                     : loaded 2 times (x 85B)
+Class er.extensions.foundation.ERXProperties$_Properties                              : loaded 2 times (x 149B)
+Class er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment                  : loaded 2 times (x 88B)
+Class er.directtoweb.components.ERDActionBar                                          : loaded 2 times (x 252B)
+Class er.modern.directtoweb.components.header.ERMD2WHeader                            : loaded 2 times (x 233B)
+Class er.extensions.jdbc.ERXSQLHelper                                                 : loaded 2 times (x 133B)
+Class com.eltekfw.model.Security                                                      : loaded 2 times (x 432B)
+Class er.extensions.eof.qualifiers.ERXRegExQualifier                                  : loaded 2 times (x 119B)
+Class er.modern.directtoweb.delegates.ERMD2WAttributeQueryDelegate$ERMD2WQueryComponent: loaded 2 times (x 72B)
+Class er.attachment.ERAttachmentPrincipal                                             : loaded 2 times (x 77B)
+Class com.eltekfw.InvDepotEO                                                          : loaded 2 times (x 77B)
+Class er.modern.directtoweb.components.buttons.ERMDEditButton                         : loaded 2 times (x 252B)
+Class com.eltekfw.model.SavedDoc                                                      : loaded 2 times (x 421B)
+Class er.directtoweb.qualifiers.ERDQualifierTraversal                                 : loaded 2 times (x 73B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$Text                 : loaded 2 times (x 126B)
+Class er.extensions.eof.ERXECNoValidationDelegate                                     : loaded 2 times (x 74B)
+Class er.attachment.migrations.ERAttachment0                                          : loaded 2 times (x 85B)
+Class er.extensions.eof.ERXDatabaseContextDelegate                                    : loaded 2 times (x 89B)
+Class er.extensions.foundation.ERXArrayUtilities$LimitOperator                        : loaded 2 times (x 78B)
+Class er.extensions.foundation.ERXFileUtilities                                       : loaded 2 times (x 73B)
+Class er.directtoweb.pages.ERD2WPage                                                  : loaded 2 times (x 336B)
+Class er.attachment.migrations.ERAttachment1                                          : loaded 2 times (x 85B)
+Class er.extensions.foundation.ERXKeyValueCodingUtilities$1                           : loaded 2 times (x 85B)
+Class er.directtoweb.assignments.delayed.ERDDelayedSwitchAssignment                   : loaded 2 times (x 88B)
+Class er.extensions.woextensions.WOSortOrder                                          : loaded 2 times (x 210B)
+Class er.directtoweb.assignments.ERDSortedManyToManyAssignment                        : loaded 2 times (x 94B)
+Class er.attachment.model.ERAttachment                                                : loaded 2 times (x 456B)
+Class er.extensions.eof.qualifiers.ERXRegExQualifier$Support                          : loaded 2 times (x 76B)
+Class er.attachment.migrations.ERAttachment2                                          : loaded 2 times (x 85B)
+Class er.extensions.appserver.ERXWOContext                                            : loaded 2 times (x 208B)
+Class er.directtoweb.components.ERDCustomEditComponent                                : loaded 2 times (x 239B)
+Class er.extensions.eof.ERXEnterpriseObject                                           : loaded 2 times (x 72B)
+Class er.extensions.eof.listener.ERXEOExecutionListenerDumbImpl                       : loaded 2 times (x 77B)
+Class er.attachment.migrations.ERAttachment3                                          : loaded 2 times (x 85B)
+Class er.extensions.foundation.ERXArrayUtilities$SortOperator                         : loaded 2 times (x 78B)
+Class er.modern.directtoweb.components.header.ERMD2WSimpleHeader                      : loaded 2 times (x 233B)
+Class er.coolcomponents.CCSmartAjaxButton                                             : loaded 2 times (x 203B)
+Class er.directtoweb.ERD2WModel$_LhsKeysCallback                                      : loaded 2 times (x 81B)
+Class er.modern.directtoweb.components.ERMD2WCSSReference                             : loaded 2 times (x 249B)
+Class er.modern.directtoweb.components.ERMD2WPropertyName                             : loaded 2 times (x 263B)
+Class er.directtoweb.interfaces.ERDObjectSaverInterface                               : loaded 2 times (x 72B)
+Class er.directtoweb.components.ERDCustomComponent                                    : loaded 2 times (x 230B)
+Class er.extensions.statistics.ERXStats                                               : loaded 2 times (x 73B)
+Class er.directtoweb.components.ERD2WSwitchComponent                                  : loaded 2 times (x 179B)
+Class er.directtoweb.assignments.defaults.ERDDefaultAjaxConfigurationNameAssignment   : loaded 2 times (x 111B)
+Class er.directtoweb.assignments.defaults.ERDDefaultIDAssignment                      : loaded 2 times (x 99B)
+Class er.modern.directtoweb.assignments.defaults.ERMDDefaultCSSAssignment             : loaded 2 times (x 132B)
+Class er.extensions.jdbc.ERXSQLHelper$MicrosoftSQLHelper                              : loaded 2 times (x 133B)
+Class er.extensions.foundation.ERXRetainer                                            : loaded 2 times (x 73B)
+Class er.extensions.eof.ERXAdaptorChannelDelegate                                     : loaded 2 times (x 79B)
+Class er.extensions.appserver.ERXApplication$Loader                                   : loaded 2 times (x 76B)
+Class er.extensions.foundation.ERXThreadStorage$ERXThreadStorageCloneableThreadLocal  : loaded 2 times (x 85B)
+Class er.extensions.components.ERXDebugMarker$DebugPageProvider                       : loaded 2 times (x 72B)
+Class er.extensions.ERXFrameworkPrincipal$Observer                                    : loaded 2 times (x 73B)
+Class er.extensions.foundation.ERXProperties                                          : loaded 2 times (x 156B)
+Class er.directtoweb.components.misc.ERDHasChangesMarker                              : loaded 2 times (x 240B)
+Class er.extensions.components.ERXPluralString                                        : loaded 2 times (x 205B)
+Class er.extensions.components._private.ERXWOString                                   : loaded 2 times (x 77B)
+Class er.extensions.qualifiers.IERXChainableQualifier                                 : loaded 2 times (x 72B)
+Class er.modern.look.components.ERMODRequiredWrapper                                  : loaded 2 times (x 214B)
+Class er.ajax.AjaxFlickrBatchNavigation                                               : loaded 2 times (x 233B)
+Class er.extensions.appserver.ERXBasicBrowser                                         : loaded 2 times (x 130B)
+Class er.extensions.foundation.ERXValueUtilities                                      : loaded 2 times (x 73B)
+Class er.directtoweb.assignments.defaults.ERDDefaultClassStringAssignment             : loaded 2 times (x 97B)
+Class com.eltekfw.model.eogen._Vendor                                                 : loaded 2 times (x 433B)
+Class er.attachment.model._ERDatabaseAttachment                                       : loaded 2 times (x 462B)
+Class er.extensions.appserver.ERXResponseRewriter                                     : loaded 2 times (x 73B)
+Class er.ajax.AjaxUpdateContainer                                                     : loaded 2 times (x 119B)
+Class er.modern.directtoweb.components.buttons.ERMDActionButton                       : loaded 2 times (x 247B)
+Class er.directtoweb.pages.templates.ERD2WListPageTemplate                            : loaded 2 times (x 395B)
+Class er.extensions.components._private.ERXSwitchComponent                            : loaded 2 times (x 79B)
+Class er.extensions.appserver.navigation.ERXNavigationManager                         : loaded 2 times (x 90B)
+Class er.prototypes.ValueFactory                                                      : loaded 2 times (x 73B)
+Class er.extensions.eof.ERXGenericRecord$TouchingBinding                              : loaded 2 times (x 82B)
+Class er.extensions.eof.qualifiers.ERXInQualifier$InQualifierSQLGenerationSupport     : loaded 2 times (x 76B)
+Class er.extensions.appserver.ERXSession                                              : loaded 2 times (x 190B)
+Class er.ajax.AjaxSortOrder                                                           : loaded 2 times (x 224B)
+Class er.extensions.appserver.navigation.ERXNavigationMenu                            : loaded 2 times (x 232B)
+Class com.eltekfw.model.Preference                                                    : loaded 2 times (x 417B)
+Class er.extensions.ERXExtensions$KeyValueQualifierSQLGenerationSupport               : loaded 2 times (x 79B)
+Class er.coolcomponents.CCErrorDictionaryPanel                                        : loaded 2 times (x 209B)
+Class er.coolcomponents.CCSubmitLink                                                  : loaded 2 times (x 207B)
+Class com.eltek.Application                                                           : loaded 2 times (x 432B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$GenericElement       : loaded 2 times (x 114B)
+Class er.extensions.eof.ERXDefaultEditingContextDelegate                              : loaded 2 times (x 73B)
+Class er.extensions.components.conditionals.ERXWOConditional                          : loaded 2 times (x 85B)
+Class er.extensions.qualifiers.ERXFalseQualifierSupport                               : loaded 2 times (x 76B)
+Class er.modern.directtoweb.components.ERMDBatchSizeControl                           : loaded 2 times (x 241B)
+Class er.modern.directtoweb.assignments.ERMDAjaxUpdateAssignment                      : loaded 2 times (x 95B)
+Class er.directtoweb.interfaces.ERDUserInfoInterface                                  : loaded 2 times (x 72B)
+Class er.extensions.eof.ERXDatabaseContextDelegate$1                                  : loaded 2 times (x 78B)
+Class er.directtoweb.assignments.defaults.ERDDefaultModelAssignment                   : loaded 2 times (x 110B)
+Class er.extensions.appserver.ERXSession$1                                            : loaded 2 times (x 86B)
+Class er.modern.directtoweb.components.ERMDAjaxNotificationCenter                     : loaded 2 times (x 235B)
+Class er.directtoweb.components.misc.ERDAnyField                                      : loaded 2 times (x 185B)
+Class er.directtoweb.components.relationships.ERDList                                 : loaded 2 times (x 249B)
+Class com.eltek.components.Main                                                       : loaded 2 times (x 209B)
+Class er.modern.look.pages.ERMODInspectPage                                           : loaded 2 times (x 379B)
+Class er.extensions.concurrency.ERXCloneableThreadLocal                               : loaded 2 times (x 85B)
+Class er.extensions.eof.ERXFetchSpecification                                         : loaded 2 times (x 130B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$SubmitButton         : loaded 2 times (x 127B)
+Class er.directtoweb.assignments.delayed.ERDDelayedAssignment                         : loaded 2 times (x 84B)
+Class er.modern.look.components.ERMODSection                                          : loaded 2 times (x 205B)
+Class er.extensions.migration.ERXMigrator                                             : loaded 2 times (x 80B)
+Class er.modern.directtoweb.assignments.defaults.ERMDDefaultActionAssignment          : loaded 2 times (x 96B)
+Class er.extensions.foundation.ERXPatcher                                             : loaded 2 times (x 73B)
+Class er.extensions.foundation.ERXArrayUtilities$AvgNonNullOperator                   : loaded 2 times (x 77B)
+Class er.modern.directtoweb.components.query.ERMD2WListFilter                         : loaded 2 times (x 256B)
+Class er.modern.directtoweb.assignments.defaults.ERMDDefaultConfigurationNameAssignment: loaded 2 times (x 116B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$ActiveImage          : loaded 2 times (x 128B)
+Class er.extensions.appserver.ERXShutdownHook                                         : loaded 2 times (x 115B)
+Class er.directtoweb.assignments.delayed.ERDDelayedSelectorInvocationAssignment       : loaded 2 times (x 88B)
+Class er.modern.directtoweb.components.repetitions.ERMDListPageRepetition             : loaded 2 times (x 257B)
+Class er.directtoweb.assignments.defaults.ERDDefaultActionAssignment                  : loaded 2 times (x 96B)
+Class er.directtoweb.assignments.ERDEnumAssignment                                    : loaded 2 times (x 93B)
+Class er.extensions.components._private.ERXHyperlink                                  : loaded 2 times (x 124B)
+Class er.extensions.appserver.ERXBrowserFactory                                       : loaded 2 times (x 89B)
+Class er.extensions.appserver.ajax.ERXAjaxSession                                     : loaded 2 times (x 166B)
+Class er.directtoweb.assignments.defaults.ERDDefaultDisplayNameAssignment             : loaded 2 times (x 105B)
+Class er.modern.look.components.ERMODErrorBlock                                       : loaded 2 times (x 205B)
+Class er.extensions.formatters.ERXFormatterFactory                                    : loaded 2 times (x 85B)
+Class er.extensions.jdbc.ERXSQLHelper$OpenBaseSQLHelper                               : loaded 2 times (x 133B)
+Class com.eltekfw.migration.InvDepotEO0                                               : loaded 2 times (x 85B)
+Class er.directtoweb.assignments.delayed.ERDDelayedConditionalAssignment              : loaded 2 times (x 88B)
+Class er.directtoweb.assignments.ERDAssignment                                        : loaded 2 times (x 93B)
+Class er.extensions.eof.ERXEOAccessUtilities$ChannelAction                            : loaded 2 times (x 75B)
+Class er.extensions.appserver.navigation.ERXNavigationState                           : loaded 2 times (x 85B)
+Class er.extensions.components.ERXAnyField                                            : loaded 2 times (x 186B)
+Class er.extensions.migration.IERXMigrationLock                                       : loaded 2 times (x 72B)
+Class er.directtoweb.assignments.defaults.ERDDefaultConfigurationNameAssignment       : loaded 2 times (x 111B)
+Class com.eltekfw.model.Client                                                        : loaded 2 times (x 430B)
+Class er.modern.look.components.ERMODComponent                                        : loaded 2 times (x 204B)
+Class er.directtoweb.pages.templates.ERD2WInspectPageTemplate                         : loaded 2 times (x 379B)
+Class er.extensions.foundation.ERXMutableUserInfoHolderInterface                      : loaded 2 times (x 72B)
+Class er.directtoweb.assignments.delayed.ERDDelayedExtraQualifierAssignment           : loaded 2 times (x 89B)
+Class er.extensions.foundation.ERXKeyValueCodingUtilities                             : loaded 2 times (x 73B)
+Class er.extensions.appserver.ajax.ERXAjaxApplication$ERXAjaxResponseDelegate         : loaded 2 times (x 72B)
+Class er.extensions.appserver.navigation.ERXNavigationMenuItem                        : loaded 2 times (x 222B)
+Class er.extensions.woextensions.WOToOneRelationship                                  : loaded 2 times (x 238B)
+Class er.directtoweb.assignments.ERDTabDictionaryComputer                             : loaded 2 times (x 88B)
+Class er.extensions.components.ERXArrayChooser                                        : loaded 2 times (x 235B)
+Class er.directtoweb.qualifiers.ERDQualifierTraversalCallback                         : loaded 2 times (x 80B)
+Class er.extensions.migration.ERXMigrator$ERXMigrationAction                          : loaded 2 times (x 76B)
+Class er.extensions.jdbc.ERXJDBCUtilities                                             : loaded 2 times (x 73B)
+Class er.extensions.appserver.ERXMessageEncoding                                      : loaded 2 times (x 77B)
+Class com.webobjects.woextensions._WOJExtensionsUtil                                  : loaded 2 times (x 73B)
+Class er.directtoweb.components.buttons.ERDPrinterButton                              : loaded 2 times (x 246B)
+Class er.modern.look.pages.ERMODListPage                                              : loaded 2 times (x 395B)
+Class er.extensions.appserver.ERXWOContext$Observer                                   : loaded 2 times (x 74B)
+Class er.directtoweb.components.buttons.ERDFilterDisplayGroupButton                   : loaded 2 times (x 236B)
+Class er.attachment.model._ERS3Attachment                                             : loaded 2 times (x 459B)
+Class er.extensions.jdbc.ERXSQLHelper$FirebirdSQLHelper                               : loaded 2 times (x 133B)
+Class er.extensions.appserver.ERXRequest$_LanguageComparator                          : loaded 2 times (x 74B)
+Class er.modern.directtoweb.components.ERMD2WCombinedTableHeader                      : loaded 2 times (x 226B)
+Class er.extensions.components.javascript.ERXJSFlyOver                                : loaded 2 times (x 212B)
+Class er.extensions.eof.qualifiers.ERXPrimaryKeyListQualifier$Support                 : loaded 2 times (x 76B)
+Class com.webobjects.woextensions.WOCollapsibleComponentContent                       : loaded 2 times (x 179B)
+Class er.directtoweb.assignments.delayed.ERDDelayedLocalizedAssignment                : loaded 2 times (x 84B)
+Class er.extensions.appserver.ERXShutdownHook$1                                       : loaded 2 times (x 114B)
+Class er.extensions.eof.ERXModelGroup                                                 : loaded 2 times (x 112B)
+Class er.directtoweb.components.misc.ERD2WQueryAnyField                               : loaded 2 times (x 257B)
+Class er.ajax.AjaxObserveField                                                        : loaded 2 times (x 117B)
+Class er.directtoweb.assignments.delayed.ERDDelayedKeyValueAssignment                 : loaded 2 times (x 88B)
+Class er.directtoweb.pages.ERD2WQueryEntitiesPage                                     : loaded 2 times (x 348B)
+Class er.extensions.components._private.ERXWOTextField                                : loaded 2 times (x 127B)
+Class er.extensions.eof.ERXEOAccessUtilities$1                                        : loaded 2 times (x 76B)
+Class er.extensions.eof.ERXQ                                                          : loaded 2 times (x 73B)
+Class er.extensions.appserver.ERXResponse                                             : loaded 2 times (x 166B)
+Class er.extensions.eof.ERXEOAccessUtilities$2                                        : loaded 2 times (x 76B)
+Class er.extensions.appserver.ERXDirectActionRequestHandler                           : loaded 2 times (x 92B)
+Class er.directtoweb.assignments.ERDUnitResolverAssignment                            : loaded 2 times (x 84B)
+Class er.directtoweb.assignments.ERDKeyValueAssignment                                : loaded 2 times (x 83B)
+Class er.extensions.eof.ERXEOAccessUtilities$3                                        : loaded 2 times (x 76B)
+Class er.extensions.migration.IERXMigration                                           : loaded 2 times (x 72B)
+Class er.extensions.foundation.ERXRuntimeUtilities                                    : loaded 2 times (x 73B)
+Class er.extensions.appserver.ERXResponseRewriter$TagMissingBehavior                  : loaded 2 times (x 81B)
+Class er.extensions.components.conditionals.ERXEqualConditional                       : loaded 2 times (x 85B)
+Class er.directtoweb.components.ERD2WDebugFlags                                       : loaded 2 times (x 179B)
+Class er.extensions.validation.ERXExceptionHolder                                     : loaded 2 times (x 72B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches                      : loaded 2 times (x 73B)
+Class er.extensions.eof.ERXEOAccessUtilities$4                                        : loaded 2 times (x 76B)
+Class er.extensions.validation.ERXValidation                                          : loaded 2 times (x 73B)
+Class er.directtoweb.assignments.delayed.ERDDelayedNonNullConditionalAssignment       : loaded 2 times (x 85B)
+Class com.eltekfw.model.Person                                                        : loaded 2 times (x 424B)
+Class er.extensions.foundation.ERXUtilities                                           : loaded 2 times (x 73B)
+Class er.extensions.components.ERXComponent                                           : loaded 2 times (x 202B)
+Class er.directtoweb.ERD2WRule                                                        : loaded 2 times (x 104B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$ImageButton          : loaded 2 times (x 126B)
+Class er.extensions.eof.qualifiers.ERXFullTextQualifier                               : loaded 2 times (x 92B)
+Class er.extensions.eof.ERXEOAccessUtilities$5                                        : loaded 2 times (x 76B)
+Class er.modern.directtoweb.components.ERMD2WColumnSelector                           : loaded 2 times (x 239B)
+Class er.directtoweb.assignments.ERDLocalizableAssignmentInterface                    : loaded 2 times (x 72B)
+Class er.extensions.remoteSynchronizer.ERXSimpleMulticastSynchronizer                 : loaded 2 times (x 96B)
+Class er.extensions.eof.ERXEnterpriseObject$Observer                                  : loaded 2 times (x 75B)
+Class er.extensions.foundation.ERXArrayUtilities                                      : loaded 2 times (x 73B)
+Class er.prototypes.ERPrototypes                                                      : loaded 2 times (x 77B)
+Class er.extensions.qualifiers.ERXTrueQualifierSupport                                : loaded 2 times (x 76B)
+Class er.extensions.ERXFrameworkPrincipal                                             : loaded 2 times (x 77B)
+Class er.extensions.components.javascript.ERXJSOpenWindowHyperlink                    : loaded 2 times (x 172B)
+Class er.directtoweb.assignments.ERDImageNameAssignment                               : loaded 2 times (x 96B)
+Class er.extensions.eof.ERXKey                                                        : loaded 2 times (x 205B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$Image                : loaded 2 times (x 117B)
+Class er.attachment.model.ERS3Attachment                                              : loaded 2 times (x 476B)
+Class er.extensions.jdbc.ERXSQLHelper$FrontBaseSQLHelper                              : loaded 2 times (x 133B)
+Class er.directtoweb.assignments.delayed.ERDDelayedNavigationStateAssignment          : loaded 2 times (x 84B)
+Class er.extensions.components.ERXOptionalForm                                        : loaded 2 times (x 204B)
+Class er.directtoweb.pages.templates.ERD2WQueryEntitiesPageTemplate                   : loaded 2 times (x 348B)
+Class er.directtoweb.pages.ERD2WInspectPage                                           : loaded 2 times (x 379B)
+Class er.ajax.AjaxResponse$AjaxResponseDelegate                                       : loaded 2 times (x 77B)
+Class er.extensions.components._private.ERXWOForm                                     : loaded 2 times (x 125B)
+Class er.extensions.foundation.ERXArrayUtilities$MedianOperator                       : loaded 2 times (x 77B)
+Class er.extensions.foundation.ERXConfigurationManager                                : loaded 2 times (x 88B)
+Class er.directtoweb.components.buttons.ERDActionButton                               : loaded 2 times (x 242B)
+Class er.extensions.components._private.ERXActiveImage                                : loaded 2 times (x 128B)
+Class er.extensions.appserver.ERXWOResponseCache                                      : loaded 2 times (x 83B)
+Class er.attachment.model.ERFileAttachment                                            : loaded 2 times (x 459B)
+Class er.directtoweb.components.repetitions.ERDListPageRepetition                     : loaded 2 times (x 254B)
+Class com.eltek.components.PageWrapper                                                : loaded 2 times (x 204B)
+Class er.extensions.migration.ERXJDBCMigrationLock                                    : loaded 2 times (x 90B)
+Class er.extensions.components._private.ERXWORepetition$Context                       : loaded 2 times (x 76B)
+Class er.extensions.foundation.ERXArrayUtilities$SubarrayWithRangeOperator            : loaded 2 times (x 78B)
+Class er.extensions.appserver.ERXComponentRequestHandler                              : loaded 2 times (x 77B)
+Class er.extensions.appserver.ERXKeepAliveResponse                                    : loaded 2 times (x 169B)
+Class er.directtoweb.assignments.ERDTabSectionsContentsAssignment                     : loaded 2 times (x 94B)
+Class er.extensions.eof.ERXNonNullObjectInterface                                     : loaded 2 times (x 72B)
+Class er.extensions.validation.ERXValidationFactory                                   : loaded 2 times (x 93B)
+Class er.extensions.appserver.ERXResourceManager                                      : loaded 2 times (x 101B)
+Class er.extensions.components.conditionals.ERXNonNullConditional                     : loaded 2 times (x 85B)
+Class er.extensions.eof.ERXEOControlUtilities                                         : loaded 2 times (x 73B)
+Class er.extensions.appserver.ajax.ERXAjaxContext                                     : loaded 2 times (x 194B)
+Class er.extensions.eof.ERXEOAccessUtilities                                          : loaded 2 times (x 73B)
+Class er.modern.look.components.ERMODSecondaryActionButtons                           : loaded 2 times (x 204B)
+Class er.extensions.eof.listener.IERXEOExecutionListener                              : loaded 2 times (x 72B)
+Class er.extensions.jdbc.ERXSQLHelper$H2SQLHelper                                     : loaded 2 times (x 133B)
+Class er.extensions.jdbc.ERXSQLHelper$DB2SQLHelper                                    : loaded 2 times (x 133B)
+Class er.extensions.jdbc.ERXJDBCAdaptor                                               : loaded 2 times (x 130B)
+Class er.extensions.eof.ERXGenericRecord$InverseRelationshipUpdater                   : loaded 2 times (x 73B)
+Class er.directtoweb.components.buttons.ERDMassModifyButton                           : loaded 2 times (x 170B)
+Class er.directtoweb.assignments.defaults.ERDDefaultFormControlNameAssignment         : loaded 2 times (x 94B)
+Class er.modern.look.pages.ERMODQueryEntitiesPage                                     : loaded 2 times (x 350B)
+Class er.directtoweb.KeyValueCodingProtectedAccessor                                  : loaded 2 times (x 77B)
+Class com.webobjects.woextensions.JavaWOExtensionPrincipal                            : loaded 2 times (x 73B)
+Class er.extensions.foundation.ERXPatcher$DynamicElementsPatches$PasswordField        : loaded 2 times (x 126B)
+Class com.webobjects.woextensions.WOAnyField                                          : loaded 2 times (x 185B)
+Class er.extensions.appserver.ERXComponentActionRedirector$Restorable                 : loaded 2 times (x 72B)
+Class com.eltek.DirectAction                                                          : loaded 2 times (x 154B)
+Class er.ajax.AjaxSubmitButton                                                        : loaded 2 times (x 119B)
+Class er.extensions.appserver.ERXRequest                                              : loaded 2 times (x 220B)
+Class er.extensions.foundation.ERXStringUtilities                                     : loaded 2 times (x 73B)
+Class er.extensions.eof.qualifiers.ERXToManyQualifier$ToManyQualifierSQLGenerationSupport: loaded 2 times (x 76B)
+Class er.extensions.eof.ERXConstant                                                   : loaded 2 times (x 73B)
+Class er.extensions.appserver.ERXDelayedRequestHandler                                : loaded 2 times (x 84B)
+Class com.eltek.MainNavigationController                                              : loaded 2 times (x 94B)
+Class er.directtoweb.components.repetitions.ERDInspectPageRepetition                  : loaded 2 times (x 245B)
+Class er.extensions.eof.ERXGuardedObjectInterface                                     : loaded 2 times (x 72B)
+Class er.directtoweb.assignments.delayed.ERDDelayedRelationshipFlagAssignment         : loaded 2 times (x 84B)
+Class er.directtoweb.components.buttons.ERDControllerButton                           : loaded 2 times (x 258B)
+Class er.extensions.eof.ERXDatabaseContextDelegate$BatchHandler                       : loaded 2 times (x 72B)
+Class er.extensions.components.conditionals.ERXWOTemplate                             : loaded 2 times (x 78B)
+Class er.extensions.jdbc.ERXSQLHelper$FrontBaseSQLHelper$1                            : loaded 2 times (x 76B)
+
+---------------  S Y S T E M  ---------------
+
+OS:
+uname: Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:27 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8103 arm64
+OS uptime: 1 days 4:39 hours
+rlimit (soft/hard): STACK 8176k/65520k , CORE 0k/infinity , NPROC 2666/4000 , NOFILE 1048576/infinity , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
+load average: 13.95 8.32 5.57
+
+CPU: total 8 (initial active 8) 0x61:0x0:0x1b588bb3:0, fp, asimd, aes, pmull, sha1, sha256, crc32, lse, sha3, sha512
+machdep.cpu.brand_string:Apple M1
+hw.cachelinesize:128
+hw.l1icachesize:131072
+hw.l1dcachesize:65536
+hw.l2cachesize:4194304
+
+Memory: 16k page, physical 16777216k(3951872k free), swap 4194304k(1625600k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.0.4.1+1-b610.67) for bsd-aarch64 JRE (25.0.4.1+1-b610.67), built on 2026-09-17 with clang Apple LLVM 16.0.0 (clang-1600.0.26.6)
+
+END.

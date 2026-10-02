@@ -25,6 +25,9 @@ er.attachment.SavedDoc.anImage.file.overwrite = false
 er.attachment.SavedDoc.anImage.file.filesystemPath = @@user.home@@/attachmentTutorial/
 
 
+er.directtoweb.rules.D2WTraceRuleFiringEnabled = true
+
+
 # Misc Components
 #er.extensions.ERXWOForm.multipleSubmitDefault=true
 #er.extensions.ERXWORepetition.checkHashCodes=true

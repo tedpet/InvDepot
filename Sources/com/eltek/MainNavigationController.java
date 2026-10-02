@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import com.eltekfw.model.Client;
 import com.eltekfw.model.Invoice;
 import com.eltekfw.model.Vendor;
+import com.eltekfw.model.Preference;
 
 
 public class MainNavigationController {
@@ -30,6 +31,7 @@ public class MainNavigationController {
 	public String PERSON = "Person";
 	public String VENDOR = "Vendor";
 	public String INVOICE = "Invoice";
+	public String PREFERENCE = "Preference";
 
 	public MainNavigationController(Session s) {
 		super();
@@ -41,6 +43,30 @@ public class MainNavigationController {
 	public WOComponent homeAction() {
         return D2W.factory().defaultPage(session());
     }
+	
+	public WOComponent preferencesAction() {
+		EOEditingContext ec = ERXEC.newEditingContext();
+		ec.lock();
+
+		ListPageInterface lpi;
+		try {
+			EODatabaseDataSource ds = new EODatabaseDataSource(ec, PREFERENCE);
+
+			ERXFetchSpecification<Preference> fs = new ERXFetchSpecification<Preference>(Preference.ENTITY_NAME,
+					null, null);
+
+			ds.setFetchSpecification(fs);
+
+			lpi = D2W.factory().listPageForEntityNamed(Preference.ENTITY_NAME, session());
+			lpi.setDataSource(ds);
+
+		} finally {
+			ec.unlock();
+		}
+		return (WOComponent) lpi;
+
+		
+	}
 	
 	public WOComponent listPersonAction() {
 		EOEditingContext ec = ERXEC.newEditingContext();
@@ -58,8 +84,6 @@ public class MainNavigationController {
 			lpi = D2W.factory().listPageForEntityNamed(Person.ENTITY_NAME, session());
 			lpi.setDataSource(ds);
 
-//				Not needed as the D2Wfactory sets up the navigationState
-			// ((D2WPage) lpi).d2wContext().takeValueForKey("Person", "navigationState");
 		} finally {
 			ec.unlock();
 		}

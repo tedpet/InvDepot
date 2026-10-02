@@ -1,7 +1,7 @@
 (
 	{
 		name = Root;
-		children = ("Home","Person","Vendor","Invoice");
+		children = ("Home","Person","Vendor","Invoice","Preferences");
 	},
 	{
 		name = "Home";
@@ -47,8 +47,8 @@
 		action = "session.navController.queryInvoiceAction";
 	},
 	{
-		name = Tab2;
-		action = "session.navController.homeAction";
+		name = Preferences;
+		action = "session.navController.preferencesAction";
 	}
 
 )
