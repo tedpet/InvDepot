@@ -27,6 +27,11 @@
 			<version>${wonder.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>io.github.wocommunity.wonder.businesslogic</groupId>
+			<artifactId>ercorebusinesslogic</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>io.github.wocommunity.wonder.ajax</groupId>
 			<artifactId>Ajax</artifactId>
 			<version>${wonder.version}</version>
@@ -97,7 +102,7 @@
 			<resource>
 				<directory>Resources</directory>
 				<includes>
-					<include>log4j2.properties</include>
+					<include>log4j2.xml</include>
 				</includes>
 			</resource>
 			<resource>

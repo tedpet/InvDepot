@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="10">
+
+    <Appenders>
+        <Console name="A1" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{MMM dd HH:mm:ss} %-5p %c %x - %m%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Wonder framework -->
+        <Logger name="er" level="WARN"/>
+        <Logger name="er.extensions.ERXDatabaseContextDelegate" level="WARN"/>
+        <Logger name="er.extensions.ERXConfigurationManager" level="INFO"/>
+        <Logger name="er.extensions.fixes.ERSharedEOLoader" level="INFO"/>
+        <Logger name="er.transaction.adaptor.EOAdaptorDebugEnabled" level="DEBUG"/>
+        <Logger name="er.directtoweb.rules.ERD2WTraceRuleFiringEnabled" level="DEBUG"/>
+
+        <!-- Your app -->
+        <Logger name="com.eltek" level="info"/>
+        <Logger name="com.eltek.DirectAction" level="debug"/>
+        <Logger name="com.eltekfw.model.Person" level="debug"/>
+
+        <Root level="WARN">
+            <AppenderRef ref="A1"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
