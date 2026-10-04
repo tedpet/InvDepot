@@ -1,15 +1,16 @@
 (
     100 : pageConfiguration = 'EditPerson' => subTask = "tab" [com.webobjects.directtoweb.Assignment],
     100 : entity.name = 'preferences' => componentName = "ERMODEditRelationshipPage" [com.webobjects.directtoweb.Assignment],
-    100 : (task = 'list' and propertyKey = 'current') => componentName = "D2WDisplayBoolean" [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'ListEmbeddedPreference' => displayPropertyKeys = ("name", "value") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'EditRelationshipEmbeddedPreference' => isEntityCreatable = "false" [com.webobjects.directtoweb.BooleanAssignment],
     100 : (pageConfiguration = 'EditPerson' and propertyKey = 'preferences') => componentName = "ERDList" [com.webobjects.directtoweb.Assignment],
-    100 : ((task = 'edit' or task = 'create') and propertyKey = 'current') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'ListPerson' => displayPropertyKeys = ("firstName", "lastName", "loginName") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'EditRelationshipEmbeddedPreference' => shouldShowQueryRelatedButton = "false" [com.webobjects.directtoweb.BooleanAssignment],
     100 : (pageConfiguration = 'EditPerson' and propertyKey = 'preferences') => listConfigurationName = "ListEmbeddedPreference" [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'list' or task = 'inspect') and (propertyKey = 'current' or propertyKey = 'administrator')) => componentName = "D2WDisplayBoolean" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'Person' and task = 'create') => tabSectionsContents = (("first", ("again and so", "current", "firstName", "lastName"))) [com.webobjects.directtoweb.Assignment],
-    100 : pageConfiguration = 'CreatePerson' => displayPropertyKeys = ("[One]", "firstName", "lastName", "current", "[Security]", "security.approveInvoice", "security.createClients", "security.createPerson", "security.editClients") [com.webobjects.directtoweb.Assignment],
-    100 : pageConfiguration = 'EditPerson' => tabSectionsContents = (("General Lines", "firstName", "lastName", "current"), ("Security", "security.approveInvoice", "security.createClients", "security.createPerson", "security.editClients"), ("Preferences", "preferences")) [com.webobjects.directtoweb.Assignment],
-    100 : ((pageConfiguration = 'CreatePerson' or pageConfiguration = 'EditPerson') and (propertyKey = 'security.approveInvoice' or propertyKey = 'security.createClients' or propertyKey = 'security.createPerson' or propertyKey = 'security.editClients')) => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment]
+    100 : ((task = 'edit' or task = 'create') and (propertyKey = 'security.approveInvoice' or propertyKey = 'security.createClients' or propertyKey = 'security.createPerson' or propertyKey = 'security.editClients' or propertyKey = 'administrator')) => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'CreatePerson' => displayPropertyKeys = ("[One]", "firstName", "lastName", "loginName", "emailAddress", "phoneNumber", "password", "current", "[Security]", "administrator", "security.approveInvoice", "security.createClients", "security.createPerson", "security.editClients") [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'CreatePerson' or pageConfiguration = 'EditPerson') and (propertyKey = 'security.approveInvoice' or propertyKey = 'security.createClients' or propertyKey = 'security.createPerson' or propertyKey = 'security.editClients' or propertyKey = 'administrator')) => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditPerson' => tabSectionsContents = (("General Lines", "firstName", "lastName", "loginName", "password", "emailAddress", "phoneNumber", "current"), ("Security", "administrator", "security.approveInvoice", "security.createClients", "security.createPerson", "security.editClients"), ("Preferences", "preferences")) [com.webobjects.directtoweb.Assignment]
 )

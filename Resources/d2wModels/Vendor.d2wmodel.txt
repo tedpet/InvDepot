@@ -1,3 +1,3 @@
 (
-    100 : pageConfiguration = 'CreateVendor' => displayPropertyKeys = ("vendorName", "password", "person", "current") [com.webobjects.directtoweb.Assignment]
+    100 : pageConfiguration = 'CreateVendor' => displayPropertyKeys = ("vendorName", "password", "person", "loginName") [com.webobjects.directtoweb.Assignment]
 )

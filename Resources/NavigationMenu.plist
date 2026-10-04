@@ -49,6 +49,7 @@
 	{
 		name = Preferences;
 		action = "session.navController.preferencesAction";
+		conditions = ("session.isAdministrator");
 	}
 
 )

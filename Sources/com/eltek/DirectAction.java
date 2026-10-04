@@ -3,11 +3,11 @@ package com.eltek;
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WORequest;
-import com.webobjects.directtoweb.D2W;
-import com.webobjects.foundation.NSLog;
+import com.webobjects.eocontrol.EOEditingContext;
 
 import er.directtoweb.ERD2WDirectAction;
 import er.extensions.eof.ERXEC;
+import er.extensions.eof.ERXGenericRecord;
 import er.extensions.foundation.ERXStringUtilities;
 
 import java.util.NoSuchElementException;
@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import com.eltek.components.Main;
 import com.eltekfw.model.Person;
+import com.eltekfw.model.Vendor;
 
 
 public class DirectAction extends ERD2WDirectAction {
@@ -43,69 +44,57 @@ public class DirectAction extends ERD2WDirectAction {
         return false;
     }
     
-	/*
-	 * public WOActionResults loginAction() {
-	 * 
-	 * String username = request().stringFormValueForKey("username"); String
-	 * password = request().stringFormValueForKey("password");
-	 * 
-	 * NSLog.out.appendln("***DirectAction.loginAction - username: " + username +
-	 * " : password: " + password + "***");
-	 * 
-	 * // ENHANCEME - add appropriate login behaviour here
-	 * 
-	 * return D2W.factory().defaultPage(session()); }
-	 *
-	 */
-    
-    public WOActionResults loginAction() {
-		log.debug("We called the WOActionResults loginAction()");
-		log.info("We called the WOActionResults loginAction() for info level");
-		WOComponent nextPage = null;
+	public WOActionResults loginAction() {
+		log.debug("loginAction called");
 
 		String username = request().stringFormValueForKey("username");
 		String password = request().stringFormValueForKey("password");
-		
-		boolean authFailed = true;
 
 		String errorMessage = null;
 
-		if (ERXStringUtilities.stringIsNullOrEmpty(username) || ERXStringUtilities.stringIsNullOrEmpty(password)){
-			//there is something wrong so set the errorMessage
+		if (ERXStringUtilities.stringIsNullOrEmpty(username) || ERXStringUtilities.stringIsNullOrEmpty(password)) {
 			errorMessage = "Please enter a username and password.";
-		}
-		else 
-		{
+		} else {
 			try {
-
-				authFailed = false;
-							
-				Person user = Person.validateLogin(ERXEC.newEditingContext(), username, password);
-				log.info("We called the validateLogin");
-				((Session) session()).setUser(user);
-				nextPage = ((Session) session()).navController().homeAction();
-			
-			}
-			catch (NoSuchElementException e) {
+				ERXGenericRecord user = validateLogin(username, password);
+				if (user != null) {
+					Session session = (Session) session();
+					session.setUser(user);
+					return session.navController().homeAction();
+				}
 				errorMessage = "No user found for that combination of username and password.";
-				authFailed = true;
-				
-			}
-			catch (Exception e) {
-			  errorMessage = "Exception e)  Some Error other than bad username password combination: " + e;
-			  authFailed = true;
-
+			} catch (Exception e) {
+				log.error("Login failed for username {}", username, e);
+				errorMessage = "Some error other than a bad username and password combination: " + e;
 			}
 		}
-		if (authFailed) {
-			log.debug("authFailed ");
-			nextPage = pageWithName(Main.class.getName());
-			nextPage.takeValueForKey(errorMessage, "errorMessage");
-			nextPage.takeValueForKey(username, "username");
-			nextPage.takeValueForKey(password, "password");
-		}
 
+		log.debug("Login failed: {}", errorMessage);
+		WOComponent nextPage = pageWithName(Main.class.getName());
+		nextPage.takeValueForKey(errorMessage, "errorMessage");
+		nextPage.takeValueForKey(username, "username");
+		nextPage.takeValueForKey(password, "password");
 		return nextPage;
 	}
-	
+
+	/**
+	 * Looks the login up as a Person first, then as a Vendor.
+	 *
+	 * @return the matching Person or Vendor, or null if neither matches
+	 */
+	private ERXGenericRecord validateLogin(String username, String password) {
+		EOEditingContext ec = ERXEC.newEditingContext();
+		try {
+			return Person.validateLogin(ec, username, password);
+		} catch (NoSuchElementException e) {
+			log.debug("No Person matches username {}; trying Vendor", username);
+		}
+		try {
+			return Vendor.validateLogin(ec, username, password);
+		} catch (NoSuchElementException e) {
+			log.debug("No Vendor matches username {}", username);
+		}
+		return null;
+	}
+
 }

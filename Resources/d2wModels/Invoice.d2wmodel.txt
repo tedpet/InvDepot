@@ -5,7 +5,8 @@
     100 : pageConfiguration = 'CreateInvoice' => formEncoding = "multipart/form-data" [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'EditSavedDoc' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration like 'Edit*SavedDoc' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
-    100 : pageConfiguration like 'ListEmbedded*' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'ListEmbeddedSavedDoc' => displayPropertyKeys = ("someText", "anImage") [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'InspectInvoice' and propertyKey = 'current') => componentName = "D2WDisplayBoolean" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'ListEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'InspectEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'EditRelationshipEmbeddedSavedDoc' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment]
