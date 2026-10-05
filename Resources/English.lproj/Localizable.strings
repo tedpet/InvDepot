@@ -1,4 +1,8 @@
 {
+
+"ValidationTemplate.UniqueConstraintException.invoicenumber_idx.CustomMethodException" = "An invoice with this number already exists.";
+
+  
   "Nav.Tab1" = "Tab1";
   "Nav.Tab2" = "Tab2";
   "Nav.Home" = "Home";

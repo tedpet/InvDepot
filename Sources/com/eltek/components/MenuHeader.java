@@ -1,5 +1,10 @@
 package com.eltek.components;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.eltek.DirectAction;
+import com.eltek.Session;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WORedirect;
@@ -14,10 +19,18 @@ import er.extensions.components.ERXComponent;
 
 public class MenuHeader extends ERXComponent {
 	
+	private static final Logger log = LoggerFactory.getLogger(MenuHeader.class);
+
     public MenuHeader(WOContext context) {
         super(context);
     }
     
+	/** Typed session so bindings such as session.userDisplayName resolve against com.eltek.Session. */
+	@Override
+	public Session session() {
+		return (Session) super.session();
+	}
+
 	// ERXModernNavigationMenu Support
 	
     public NSKeyValueCoding navigationContext() {
@@ -35,14 +48,16 @@ public class MenuHeader extends ERXComponent {
         }
         @SuppressWarnings("unused")
 		ERXNavigationState state = ERXNavigationManager.manager().navigationStateForSession(session());
-        // log.debug("NavigationState:" + state + "," + state.state() + "," + state.stateAsString());
-        //log.info("navigationContext:" + session().objectForKey("navigationContext"));
+        log.debug("NavigationState:{}, {}, {}",  state, state.state(), state.stateAsString());
+        log.info("navigationContext:{}", session().objectForKey("navigationContext"));
         return context;
     }
     
     // Actions
     
     public WOComponent logout() {
+        log.info("logout:");
+
         WOComponent redirectPage = pageWithName("WORedirect");
         ((WORedirect) redirectPage).setUrl(D2W.factory().homeHrefInContext(context()));
         session().terminate();
@@ -50,6 +65,6 @@ public class MenuHeader extends ERXComponent {
     }
     
     public WOComponent homeAction() {
-        return D2W.factory().defaultPage(session());
+        return session().navController().homeAction();
     }
 }

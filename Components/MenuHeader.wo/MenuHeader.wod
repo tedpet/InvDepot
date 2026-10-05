@@ -14,3 +14,8 @@ LoginLink: WOHyperlink {
 HomeLink: WOHyperlink {
     action = homeAction;
 }
+
+
+UsernameField : WOString {
+  value = session.userDisplayName;
+}

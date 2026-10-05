@@ -14,7 +14,7 @@
     100 : *true* => isEntityEditable = "true" [com.webobjects.directtoweb.BooleanAssignment],
     100 : *true* => isEntityDeletable = "true" [com.webobjects.directtoweb.BooleanAssignment],
     100 : pageConfiguration like 'EditRelationship*' => useAjaxControls = "false" [com.webobjects.directtoweb.BooleanAssignment],
-    100 : (task = 'edit' and pageConfiguration = 'current') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and propertyKey = 'current') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
     100 : (task = 'inspect' and smartRelationship.isToMany = (java.lang.Number)'1') => componentName = "ERDList" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'InspectInvoice' and propertyKey = 'anImage') => componentName = "AttachmentDisplay" [com.webobjects.directtoweb.Assignment],
     100 : (smartRelationship != null and smartRelationship.isToMany = (java.lang.Number)'0' and task = 'inspect') => componentName = "ERD2WDisplayToOne" [com.webobjects.directtoweb.Assignment]

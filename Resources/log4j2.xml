@@ -20,6 +20,9 @@
         <Logger name="com.eltek" level="info"/>
         <Logger name="com.eltek.DirectAction" level="debug"/>
         <Logger name="com.eltekfw.model.Person" level="debug"/>
+        
+        <Logger name="com.eltek.components.MenuHeader" level="debug"/>
+
 
         <Root level="WARN">
             <AppenderRef ref="A1"/>

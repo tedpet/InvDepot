@@ -28,6 +28,7 @@ er.attachment.SavedDoc.anImage.file.filesystemPath = @@user.home@@/attachmentTut
 er.directtoweb.rules.D2WTraceRuleFiringEnabled = true
 
 
+
 # Misc Components
 #er.extensions.ERXWOForm.multipleSubmitDefault=true
 #er.extensions.ERXWORepetition.checkHashCodes=true
@@ -82,3 +83,5 @@ log4j.logger.er.extensions.ERXConfigurationManager=INFO
 er.extensions.ERXNavigationManager.localizeDisplayKeys=true
 er.extensions.ERXNavigationManager.NavigationMenuFileName = NavigationMenu.plist
 er.extensions.ERXNavigationManager.includeLabelSpanTag = true
+
+er.extensions.ERXLocalizer.fileNamesToWatch=("Localizable.strings", "ValidationTemplate.strings")

@@ -55,6 +55,22 @@ public class Session extends ERXSession {
 		return user instanceof Vendor;
 	}
 
+	/** "Person", "Vendor", or null when nobody is logged in. Meant for D2W rules: session.userType = 'Vendor'. */
+	public String userType() {
+		return (user == null) ? null : user.entityName();
+	}
+
+	/** Name to show for the logged-in user: a Person's first name or a Vendor's vendor name; null when nobody is logged in. */
+	public String userDisplayName() {
+		if (user instanceof Person p) {
+			return p.firstName() + " " + p.lastName();
+		}
+		if (user instanceof Vendor v) {
+			return v.vendorName();
+		}
+		return null;
+	}
+
 	/** True only for a logged-in Person flagged as administrator; a Vendor is never an administrator. */
 	public boolean isAdministrator() {
 		Person p = person();

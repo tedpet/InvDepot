@@ -29,4 +29,5 @@ module com.eltek.InvDepot {
     requires com.github.luben.zstd_jni;
 	requires org.wocommunity.wonder.erattachment;
 	requires org.wocommunity.wonder.ercorebusinesslogic;
+	requires org.wocommunity.webobjects.eoaccess;
 }

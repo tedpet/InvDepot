@@ -1,5 +1,6 @@
 package com.eltek.components;
 
+import com.eltek.Session;
 import com.webobjects.appserver.WOContext;
 import er.extensions.components.ERXStatelessComponent;
 
@@ -13,6 +14,12 @@ public class Main extends ERXStatelessComponent {
 		super(context);
 	}
 	
+	/** Typed session so bindings such as session.userDisplayName resolve against com.eltek.Session. */
+	@Override
+	public Session session() {
+		return (Session) super.session();
+	}
+
 	public void setUsername(String username) {
 		_username = username;
 	}

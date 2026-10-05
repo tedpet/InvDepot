@@ -2,12 +2,15 @@ package com.eltek;
 
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.directtoweb.D2W;
+import com.webobjects.directtoweb.D2WPage;
 import com.webobjects.directtoweb.EditPageInterface;
 import com.webobjects.directtoweb.ErrorPageInterface;
 import com.webobjects.directtoweb.ListPageInterface;
 import com.webobjects.directtoweb.QueryPageInterface;
 import com.webobjects.eoaccess.EODatabaseDataSource;
+import com.webobjects.eoaccess.EOUtilities;
 import com.webobjects.eocontrol.EOEditingContext;
+import com.webobjects.eocontrol.EOEnterpriseObject;
 
 import er.extensions.eof.ERXEC;
 import er.extensions.eof.ERXFetchSpecification;
@@ -40,9 +43,43 @@ public class MainNavigationController {
 
 	// NAV ACTIONS
 	
+	/** Home page for the logged-in user: a Vendor lands on its own invoices, a Person on the default D2W page. */
 	public WOComponent homeAction() {
-        return D2W.factory().defaultPage(session());
-    }
+		if (session().isVendor()) {
+			return vendorHomeAction();
+		}
+		return personHomeAction();
+	}
+
+	/** Home for a Person: the default D2W page. */
+	public WOComponent personHomeAction() {
+		return D2W.factory().defaultPage(session());
+	}
+
+	/** Home for a Vendor: the list of that vendor's own invoices. */
+	public WOComponent vendorHomeAction() {
+		EOEditingContext ec = ERXEC.newEditingContext();
+		ec.lock();
+
+		ListPageInterface lpi;
+		try {
+			Vendor vendor = session().vendor().localInstanceIn(ec);
+
+			EODatabaseDataSource ds = new EODatabaseDataSource(ec, INVOICE);
+
+			ERXFetchSpecification<Invoice> fs = new ERXFetchSpecification<Invoice>(Invoice.ENTITY_NAME,
+					Invoice.VENDOR.eq(vendor), null);
+
+			ds.setFetchSpecification(fs);
+
+			lpi = D2W.factory().listPageForEntityNamed(Invoice.ENTITY_NAME, session());
+			lpi.setDataSource(ds);
+
+		} finally {
+			ec.unlock();
+		}
+		return (WOComponent) lpi;
+	}
 	
 	public WOComponent preferencesAction() {
 		EOEditingContext ec = ERXEC.newEditingContext();
@@ -137,27 +174,24 @@ public class MainNavigationController {
 	//                    Invoice Area
 	
 	public WOComponent listInvoiceAction() {
-		EOEditingContext ec = ERXEC.newEditingContext();
-		ec.lock();
-
-		ListPageInterface lpi;
-		try {
-			EODatabaseDataSource ds = new EODatabaseDataSource(ec, INVOICE);
-
-			ERXFetchSpecification<Person> fs = new ERXFetchSpecification<Person>(Invoice.ENTITY_NAME,
-					Invoice.CURRENT.eq(true), null);
-
-			ds.setFetchSpecification(fs);
-
-			lpi = D2W.factory().listPageForEntityNamed(Invoice.ENTITY_NAME, session());
-			lpi.setDataSource(ds);
-
-//				Not needed as the D2Wfactory sets up the navigationState
-			// ((D2WPage) lpi).d2wContext().takeValueForKey("Person", "navigationState");
-		} finally {
-			ec.unlock();
-		}
-		return (WOComponent) lpi;
+		
+		  EOEditingContext ec = ERXEC.newEditingContext(); ec.lock();
+		  
+		  ListPageInterface lpi; try { EODatabaseDataSource ds = new
+		  EODatabaseDataSource(ec, INVOICE);
+		  
+		  ERXFetchSpecification<Invoice> fs = new
+		  ERXFetchSpecification<Invoice>(Invoice.ENTITY_NAME, Invoice.PAID.eq(false),
+		  null);
+		  
+		  ds.setFetchSpecification(fs);
+		  
+		  lpi = D2W.factory().listPageForEntityNamed(Invoice.ENTITY_NAME, session());
+		  lpi.setDataSource(ds);
+		  
+		  } finally { ec.unlock(); } return (WOComponent) lpi;
+		 
+	
 
 	}
 
@@ -165,8 +199,29 @@ public class MainNavigationController {
 		return queryPageForEntityName(INVOICE);
 	}
 
+//	public WOComponent createInvoiceAction() {
+//		return newObjectForEntityName(INVOICE);
+//	}
+	
 	public WOComponent createInvoiceAction() {
-		return newObjectForEntityName(INVOICE);
+	    WOComponent page = newObjectForEntityName(INVOICE);
+
+	    // Skip if we got the error page back
+	    if (page instanceof EditPageInterface && page instanceof D2WPage) {
+	        EOEnterpriseObject invoice = ((D2WPage) page).object();
+	        if (invoice != null) {
+	            EOEditingContext ec = invoice.editingContext();
+	            ec.lock();
+	            try {
+	                Vendor vendor = ((Session) session()).vendor();
+	                Vendor localVendor = (Vendor) EOUtilities.localInstanceOfObject(ec, vendor);
+	                invoice.addObjectToBothSidesOfRelationshipWithKey(localVendor, "vendor");
+	            } finally {
+	                ec.unlock();
+	            }
+	        }
+	    }
+	    return page;
 	}
 	
 //	// ADMIN
