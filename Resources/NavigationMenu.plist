@@ -1,7 +1,7 @@
 (
 	{
 		name = Root;
-		children = ("Home","Person","Vendor","Invoice","Preferences");
+		children = ("Home","Person","editIndividual","Vendor","Invoice","Preferences");
 	},
 	{
 		name = "Home";
@@ -11,6 +11,11 @@
 		name = Person;
 		action = "session.navController.listPersonAction";
 		children = ("createPerson","searchPerson");
+		conditions = ("session.isAdministrator");
+	},
+	{
+		name = editIndividual;
+		action = "session.navController.editCurrentUser";
 	},
 	{
 		name = createPerson;
@@ -24,6 +29,7 @@
 		name = Vendor;
 		action = "session.navController.listVendorAction";
 		children = ("createVendor","searchVendor");
+		conditions = ("session.isAdministrator");
 	},
 	{
 		name = createVendor;

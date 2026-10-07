@@ -2,6 +2,7 @@ package com.eltek;
 
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.directtoweb.D2W;
+import com.webobjects.directtoweb.D2WContext;
 import com.webobjects.directtoweb.D2WPage;
 import com.webobjects.directtoweb.EditPageInterface;
 import com.webobjects.directtoweb.ErrorPageInterface;
@@ -12,7 +13,9 @@ import com.webobjects.eoaccess.EOUtilities;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.eocontrol.EOEnterpriseObject;
 
+import er.extensions.appserver.ERXWOContext;
 import er.extensions.eof.ERXEC;
+import er.extensions.eof.ERXEOControlUtilities;
 import er.extensions.eof.ERXFetchSpecification;
 
 import com.eltekfw.model.Person;
@@ -28,7 +31,7 @@ import com.eltekfw.model.Preference;
 
 public class MainNavigationController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(MainNavigationController.class);
+	private static final Logger log = LoggerFactory.getLogger(MainNavigationController.class);
 
 	private Session _session;
 	public String PERSON = "Person";
@@ -135,7 +138,43 @@ public class MainNavigationController {
 	public WOComponent createPersonAction() {
 		return newObjectForEntityName(PERSON);
 	}
+	
+	public WOComponent editCurrentUser() {
+	    log.debug("entered editCurrentUser()");
 
+	    Session session = (Session) session();
+
+	    String pageConfiguration;
+	    if (session.isPerson()) {
+	        pageConfiguration = "EditSinglePerson";
+	    } else if (session.isVendor()) {
+	        pageConfiguration = "EditSingleVendor";
+	    } else {
+	        throw new IllegalStateException("editCurrentUser() called for a session that is neither a person nor a vendor");
+	    }
+
+	    EOEditingContext ec = ERXEC.newEditingContext();
+	    EOEnterpriseObject user;
+	    ec.lock();
+	    try {
+	        user = ERXEOControlUtilities.localInstanceOfObject(ec, (EOEnterpriseObject) session.user());
+	    } finally {
+	        ec.unlock();
+	    }
+
+	    EditPageInterface epi = (EditPageInterface) D2W.factory().pageForConfigurationNamed(pageConfiguration, session);
+	    epi.setObject(user);
+	    epi.setNextPage(ERXWOContext.currentContext().page());
+
+	    if (epi instanceof D2WPage) {
+	        D2WContext d2wContext = ((D2WPage) epi).d2wContext();
+	        d2wContext.takeValueForKey("EditSingle", "navigationState");
+	        log.debug("pageConfiguration = {}, navigationState = {}", pageConfiguration, d2wContext.valueForKey("navigationState"));
+	    }
+
+	    return (WOComponent) epi;
+	}
+	
 	//                    Vendor Area
 	
 	public WOComponent listVendorAction() {
@@ -224,61 +263,6 @@ public class MainNavigationController {
 	    return page;
 	}
 	
-//	// ADMIN
-//	
-//	public WOComponent adminAction() {
-//		return queryPageForEntityName(Talent.ENTITY_NAME);
-//	}
-//	
-//	// MOVIES
-//	
-//	public WOComponent queryMovieAction() {
-//		return queryPageForEntityName(MOVIE);
-//	}
-//	
-//	public WOComponent createMovieAction() {
-//		return newObjectForEntityName(MOVIE);
-//	}
-//	
-//	// STUDIOS
-//	
-//	public WOComponent queryStudioAction() {
-//		return queryPageForEntityName(STUDIO);
-//	}
-//	
-//	public WOComponent createStudioAction() {
-//		return newObjectForEntityName(STUDIO);
-//	}
-//	
-//	// TALENT
-//	
-//	public WOComponent queryTalentAction() {
-//		return queryPageForEntityName(Talent.ENTITY_NAME);
-//	}
-//	
-//	public WOComponent createTalentAction() {
-//		return newObjectForEntityName(Talent.ENTITY_NAME);
-//	}
-//	
-//	// VOTING
-//	
-//	public WOComponent queryVotingAction() {
-//		return queryPageForEntityName(Voting.ENTITY_NAME);
-//	}
-//	
-//	public WOComponent createVotingAction() {
-//		return newObjectForEntityName(Voting.ENTITY_NAME);
-//	}
-//	
-//	// REVIEW
-//	
-//	public WOComponent queryReviewAction() {
-//		return queryPageForEntityName(REVIEW);
-//	}
-//	
-//	public WOComponent createReviewAction() {
-//		return newObjectForEntityName(REVIEW);
-//	}
 	
 	// GENERIC ACTIONS
 	

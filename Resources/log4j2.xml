@@ -21,9 +21,12 @@
         <Logger name="com.eltek.DirectAction" level="debug"/>
         <Logger name="com.eltekfw.model.Person" level="debug"/>
         
-        <Logger name="com.eltek.components.MenuHeader" level="debug"/>
+        <Logger name="com.eltek.components.MenuHeader" level="warn"/>
 
-
+        <Logger name="com.eltek.MainNavigationController" level="debug"/>
+        
+<!--<Logger name="er.extensions.validation.ERXValidationFactory" level="debug"/>
+-->
         <Root level="WARN">
             <AppenderRef ref="A1"/>
         </Root>

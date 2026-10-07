@@ -1,3 +1,4 @@
 (
-    100 : pageConfiguration = 'CreateVendor' => displayPropertyKeys = ("vendorName", "password", "person", "loginName") [com.webobjects.directtoweb.Assignment]
+    100 : pageConfiguration = 'CreateVendor' => displayPropertyKeys = ("vendorName", "emsilAddress", "phoneNumber", "password", "person", "loginName") [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'EditSingleVendor' and session.userType = 'Vendor') => displayPropertyKeys = ("vendorName", "phoneNumber", "loginName", "emailAddress", "password") [com.webobjects.directtoweb.Assignment]
 )

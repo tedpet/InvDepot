@@ -18,7 +18,7 @@
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.eltek.Application"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="com.eltek.InvDepot"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-DWOPort=9018 -DWOHost=127.0.0.1 -DWOAdaptorURL=https://127.0.0.1/cgi-bin/WebObjects -DWOSSLEnabled=true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-DWOPort=9018 -DWOHost=192.168.1.52 -DWOAdaptorURL=https://192.168.1.52/cgi-bin/WebObjects -DWOSSLEnabled=true"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="InvDepot"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+UseCompactObjectHeaders"/>
