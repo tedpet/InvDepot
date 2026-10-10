@@ -7,7 +7,7 @@
 	<name>WonderD2W</name>
 	<properties>
 		<maven.compiler.release>25</maven.compiler.release>
-		<wonder.version>8.0.3-SNAPSHOT</wonder.version>
+		<wonder.version>8.0.3</wonder.version>
 	</properties>
 	<dependencies>
 		<!-- Wonder frameworks -->
