@@ -21,6 +21,5 @@
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-DWOPort=9018 -DWOHost=192.168.1.52 -DWOAdaptorURL=https://192.168.1.52/cgi-bin/WebObjects -DWOSSLEnabled=true"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="InvDepot"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+UseCompactObjectHeaders"/>
-	<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+UseCompactObjectHeaders --enable-native-access=ALL-UNNAMED,com.github.luben.zstd_jni"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+UseCompactObjectHeaders --enable-native-access=ALL-UNNAMED,com.github.luben.zstd_jni"/>
 </launchConfiguration>
